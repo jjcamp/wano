@@ -60,9 +60,7 @@ namespace wano {
 	template<typename T>
 	void EventQueue::fire(EventType type, T info) {
 		if (events.count(type) == 1) {
-			auto v = LazyType::cast<shared_ptr<vector<function<void(T)>>>>(events[type]);
-			auto vp = v.get();
-			for (auto h : *vp) {
+			for (auto h : *LazyType::cast<shared_ptr<vector<function<void(T)>>>>(events[type]).get()) {
 				h(info);
 			}
 		}
@@ -83,8 +81,7 @@ namespace wano {
 		if (typeid(T) != *c.ptr->typeinfo) {
 			throw bad_cast();
 		}
-		auto ret = ((supertype<T>*)c.ptr.get())->value;
-		return ret;
+		return ((supertype<T>*)c.ptr.get())->value;
 	}
 }
 
