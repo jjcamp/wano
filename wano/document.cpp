@@ -33,7 +33,7 @@ namespace wano {
 	}
 
 	coord Document::cursMove(int x, int y) {
-		bool changedY = false;
+		auto changedY = false;
 		// Don't bother doing operations on unchanged coordinates
 		if (y != curs.y) {
 			changedY = true;
