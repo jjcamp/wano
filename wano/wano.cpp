@@ -5,8 +5,6 @@ using namespace std;
 using namespace curses;
 
 int main() {
-	int ch;
-
 	auto win = InitScr();
 	Raw();
 	NoNL();
@@ -21,7 +19,7 @@ int main() {
 	ta.keyPad(TRUE);
 	menu.draw();
 	while (true) {
-		ch = ta.getCh();
+		int ch = ta.getCh();
 
 		if (ch == 27) {
 			break;
