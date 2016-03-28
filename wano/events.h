@@ -12,14 +12,16 @@
 #include <stdexcept>
 #include <typeinfo>
 
-using namespace std;
-
 namespace wano {
 	// Enumeration of allowable event types
 	enum EventType {
 		MOVE_CURSOR,
 		DOC_MOVE
 	};
+
+	// Alias this long type that is used several times
+	template<typename T>
+	using vecfuncvoid = std::vector<std::function<void(T)>>;
 
 	class EventQueue {
 	public:
@@ -28,12 +30,13 @@ namespace wano {
 
 		// Adds an event handler (usually a lambda) which listens for the EventType and 
 		// has an input parameter of type T.
-		template<typename T> void addHandler(EventType type, function<void(T)> handler);
+		template<typename T> void addHandler(EventType type, std::function<void(T)> handler);
 		// Fires an event of the specified EventType, passing along the parameter info
 		// of type T.
 		template<typename T> void fire(EventType type, T info);
 
 	private:
+		// Similar to boost::any
 		struct LazyType {
 			struct basetype {
 				const type_info* typeinfo;
@@ -43,24 +46,24 @@ namespace wano {
 			};
 			template<typename T> static LazyType create(T t);
 			template<typename T> static T cast(LazyType &c);
-			unique_ptr<basetype> ptr;
+			std::unique_ptr<basetype> ptr;
 		};
 
-		unordered_map<EventType, LazyType> events;
+		std::unordered_map<EventType, LazyType> events;
 	};
 	
 	template<typename T>
-	void EventQueue::addHandler(EventType type, function<void(T)> handler) {
+	void EventQueue::addHandler(EventType type, std::function<void(T)> handler) {
 		if (events.count(type) == 0) {
-			events[type] = LazyType::create<shared_ptr<vector<function<void(T)>>>>(make_shared<vector<function<void(T)>>>(vector<function<void(T)>>(0)));
+			events[type] = LazyType::create(std::make_shared<vecfuncvoid<T>>(0));
 		}
-		LazyType::cast<shared_ptr<vector<function<void(T)>>>>(events[type])->push_back(handler);
+		LazyType::cast<shared_ptr<vecfuncvoid<T>>>(events[type])->push_back(handler);
 	}
 
 	template<typename T>
 	void EventQueue::fire(EventType type, T info) {
 		if (events.count(type) == 1) {
-			for (auto h : *LazyType::cast<shared_ptr<vector<function<void(T)>>>>(events[type]).get()) {
+			for (auto h : *LazyType::cast<shared_ptr<vecfuncvoid<T>>>(events[type]).get()) {
 				h(info);
 			}
 		}

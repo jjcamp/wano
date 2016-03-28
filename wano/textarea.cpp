@@ -1,5 +1,7 @@
 #include "textarea.h"
 
+using namespace std;
+
 namespace wano {
 	TextArea::TextArea(shared_ptr<EventQueue> eq) :
 		Window(0, 0, 1, 0),

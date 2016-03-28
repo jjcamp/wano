@@ -9,12 +9,12 @@
 namespace wano {
 	class Menu : public curses::Window {
 	public:
-		Menu(shared_ptr<EventQueue> eq);
+		Menu(std::shared_ptr<EventQueue> eq);
 		void draw();
 		void updatePos(int ln, int col);
 	private:
 		std::vector<MenuItem> items;
 		int docx, docy;
-		shared_ptr<EventQueue> eq;
+		std::shared_ptr<EventQueue> eq;
 	};
 }
