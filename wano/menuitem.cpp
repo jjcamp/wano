@@ -9,7 +9,7 @@ namespace wano {
 	}
 
 	void MenuItem::draw(Window* menu) {
-		bool isUnderlined = false;
+		auto isUnderlined = false;
 		for (auto c : text) {
 			if (c == '&') {
 				isUnderlined = true;
