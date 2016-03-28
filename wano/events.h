@@ -44,7 +44,7 @@ namespace wano {
 			template<typename T> struct supertype : public basetype {
 				T value;
 			};
-			template<typename T> static LazyType create(T t);
+			template<typename T> static LazyType create(T value);
 			template<typename T> static T cast(LazyType &c);
 			std::unique_ptr<basetype> ptr;
 		};
@@ -70,11 +70,11 @@ namespace wano {
 	}
 
 	template<typename T>
-	static EventQueue::LazyType EventQueue::LazyType::create(T t) {
+	static EventQueue::LazyType EventQueue::LazyType::create(T value) {
 		auto lt = LazyType();
 		auto tinfo = supertype<T>();
-		tinfo.value = t;
-		tinfo.typeinfo = &typeid(t);
+		tinfo.value = value;
+		tinfo.typeinfo = &typeid(value);
 		lt.ptr = make_unique<supertype<T>>(tinfo);
 		return lt;
 	}
