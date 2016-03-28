@@ -5,7 +5,7 @@
 #include "document.h"
 
 // TODO: Normally the size of the textarea
-#define PAGE_SIZE 10
+const auto PAGE_SIZE = 10;
 
 namespace wano {
 	class TextArea : public curses::Window {
