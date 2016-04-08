@@ -6,6 +6,8 @@
 #include <curses.h>
 
 namespace curses {
+	using chType = chtype;
+
 	struct CursesException : public std::exception {
 		const char* what() const throw() {
 			return "Curses Exception";
@@ -33,13 +35,13 @@ namespace curses {
 		Window(int nlines, int ncols, int begin_y, int begin_x);
 		Window(WINDOW* win);
 		void leaveOk(bool bf);
-		void addCh(int ch);
-		void insCh(int ch);
+		void addCh(chType ch);
+		void insCh(chType ch);
 		int getCh();
 		void move(int y, int x);
 		void refresh();
-		void attrOn(int attrs);
-		void attrOff(int attrs);
+		void attrOn(chType attrs);
+		void attrOff(chType attrs);
 		void keyPad(bool bf);
 		void clrToEOL();
 		int getMaxX();

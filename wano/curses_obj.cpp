@@ -39,13 +39,13 @@ namespace curses {
 		win(newwin(nlines, ncols, begin_y, begin_x), delwin)
 	{}
 
-	void Window::addCh(int ch) {
+	void Window::addCh(chType ch) {
 		if (waddch(win.get(), ch) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::insCh(int ch) {
+	void Window::insCh(chType ch) {
 		if (winsch(win.get(), ch) == ERR) {
 			throw new CursesException();
 		}
@@ -77,13 +77,13 @@ namespace curses {
 		}
 	}
 
-	void Window::attrOn(int attrs) {
+	void Window::attrOn(chType attrs) {
 		if (wattron(win.get(), attrs) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::attrOff(int attrs) {
+	void Window::attrOff(chType attrs) {
 		if (wattroff(win.get(), attrs) == ERR) {
 			throw new CursesException();
 		}
