@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace wano {
-	TextArea::TextArea(shared_ptr<EventQueue> eq) :
+	TextArea::TextArea(EventQueue* eq) :
 		Window(0, 0, 1, 0),
 		doc(eq),
 		eq{ eq }

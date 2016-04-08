@@ -10,7 +10,7 @@ const auto PAGE_SIZE = 10;
 namespace wano {
 	class TextArea : public curses::Window {
 	public:
-		TextArea(std::shared_ptr<EventQueue> eq);
+		TextArea(EventQueue* eq);
 		void handleCh(int ch);
 		Document doc;
 
@@ -23,6 +23,6 @@ namespace wano {
 		void moveScreenCursor();
 		void redrawDocument();
 
-		std::shared_ptr<EventQueue> eq;
+		EventQueue* eq;
 	};
 }

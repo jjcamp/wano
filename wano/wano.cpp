@@ -13,9 +13,9 @@ int main() {
 	Color::Start();
 
 
-	auto eq = make_shared<EventQueue>(EventQueue());
-	auto menu = Menu(eq);
-	auto ta = TextArea(eq);
+	auto eq = make_unique<EventQueue>(EventQueue());
+	auto menu = Menu(eq.get());
+	auto ta = TextArea(eq.get());
 	ta.keyPad(TRUE);
 	menu.draw();
 	while (true) {

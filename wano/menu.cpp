@@ -4,7 +4,7 @@ using namespace std;
 using namespace curses;
 
 namespace wano {
-	Menu::Menu(shared_ptr<EventQueue> eq) :
+	Menu::Menu(EventQueue* eq) :
 		Window(1, 0, 0, 0),
 		items(),
 		eq{ eq }

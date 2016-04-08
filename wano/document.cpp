@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace wano {
-	Document::Document(shared_ptr<EventQueue> eq) :
+	Document::Document(EventQueue* eq) :
 		buffer(),
 		eq{ eq },
 		curs { 0, 0 }

@@ -14,7 +14,7 @@ namespace wano {
 
 	class Document {
 	public:
-		Document(std::shared_ptr<EventQueue> eq);
+		Document(EventQueue* eq);
 		coord insCh(int ch);
 		coord delCh();
 		coord newLine();
@@ -34,6 +34,6 @@ namespace wano {
 	private:
 		RawDocument buffer;
 		coord curs;
-		std::shared_ptr<EventQueue> eq;
+		EventQueue* eq;
 	};
 }
