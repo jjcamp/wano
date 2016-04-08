@@ -36,6 +36,9 @@
     <ClInclude Include="events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rawdocument.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wano.cpp">
@@ -58,7 +61,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.md" />
     <Text Include="..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

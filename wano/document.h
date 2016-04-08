@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <functional>
+#include "rawdocument.h"
 #include "events.h"
 
 namespace wano {
@@ -28,10 +29,10 @@ namespace wano {
 		coord cursUp();
 		coord cursEnd();
 		coord cursHome();
-		std::vector<int> readLine(int line);
+		const std::string& readLine(int line);
 
 	private:
-		std::vector<std::shared_ptr<std::vector<int>>> buffer;
+		RawDocument buffer;
 		coord curs;
 		std::shared_ptr<EventQueue> eq;
 	};
