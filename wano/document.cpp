@@ -104,7 +104,7 @@ namespace wano {
 		return this->cursMove(0, curs.y);
 	}
 
-	const string& Document::readLine(int line) {
+	const string& Document::readLine(int line) const {
 		return buffer[line];
 	}
 }

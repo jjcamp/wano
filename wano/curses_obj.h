@@ -15,16 +15,16 @@ namespace curses {
 	};
 
 	struct Color {
-		static const int BLACK = COLOR_BLACK;
-		static const int BLUE = COLOR_BLUE;
-		static const int GREEN = COLOR_GREEN;
-		static const int RED = COLOR_RED;
-		static const int CYAN = COLOR_CYAN;
-		static const int MAGENTA = COLOR_MAGENTA;
-		static const int YELLOW = COLOR_YELLOW;
-		static const int WHITE = COLOR_WHITE;
+		static constexpr int BLACK = COLOR_BLACK;
+		static constexpr int BLUE = COLOR_BLUE;
+		static constexpr int GREEN = COLOR_GREEN;
+		static constexpr int RED = COLOR_RED;
+		static constexpr int CYAN = COLOR_CYAN;
+		static constexpr int MAGENTA = COLOR_MAGENTA;
+		static constexpr int YELLOW = COLOR_YELLOW;
+		static constexpr int WHITE = COLOR_WHITE;
 
-		static inline int Pair(int n) { return COLOR_PAIR(n); }
+		static constexpr int Pair(int n) { return COLOR_PAIR(n); }
 
 		static void Start();
 		static void InitPair(short pair, short f, short b);
@@ -32,22 +32,22 @@ namespace curses {
 
 	class Window {
 	public:
-		Window(int nlines, int ncols, int begin_y, int begin_x);
+		Window(const int nlines, const int ncols, const int begin_y, const int begin_x);
 		Window(WINDOW* win);
-		void leaveOk(bool bf);
-		void addCh(chType ch);
-		void insCh(chType ch);
-		int getCh();
-		void move(int y, int x);
+		void leaveOk(const bool bf);
+		void addCh(const chType ch);
+		void insCh(const chType ch);
+		int getCh() const;
+		void move(const int y, const int x);
 		void refresh();
-		void attrOn(chType attrs);
-		void attrOff(chType attrs);
-		void keyPad(bool bf);
+		void attrOn(const chType attrs);
+		void attrOff(const chType attrs);
+		void keyPad(const bool bf);
 		void clrToEOL();
-		int getMaxX();
-		int getMaxY();
-		int getX();
-		int getY();
+		int getMaxX() const;
+		int getMaxY() const;
+		int getX() const;
+		int getY() const;
 	private:
 		std::unique_ptr<WINDOW, int(*)(WINDOW*)> win;
 	};

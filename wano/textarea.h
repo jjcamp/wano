@@ -11,7 +11,7 @@ namespace wano {
 	class TextArea : public curses::Window {
 	public:
 		TextArea(EventQueue* eq);
-		void handleCh(int ch);
+		void handleCh(const int ch);
 		Document doc;
 
 	private:

@@ -35,23 +35,23 @@ namespace curses {
 		win(win, delwin)
 	{}
 
-	Window::Window(int nlines, int ncols, int begin_y, int begin_x) :
+	Window::Window(const int nlines, const int ncols, const int begin_y, const int begin_x) :
 		win(newwin(nlines, ncols, begin_y, begin_x), delwin)
 	{}
 
-	void Window::addCh(chType ch) {
+	void Window::addCh(const chType ch) {
 		if (waddch(win.get(), ch) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::insCh(chType ch) {
+	void Window::insCh(const chType ch) {
 		if (winsch(win.get(), ch) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	int Window::getCh() {
+	int Window::getCh() const {
 		auto ch = wgetch(win.get());
 		if (ch == ERR) {
 			throw new CursesException();
@@ -65,31 +65,31 @@ namespace curses {
 		}
 	}
 
-	void Window::move(int y, int x) {
+	void Window::move(const int y, const int x) {
 		if (wmove(win.get(), y, x) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::leaveOk(bool bf) {
+	void Window::leaveOk(const bool bf) {
 		if (leaveok(win.get(), bf) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::attrOn(chType attrs) {
+	void Window::attrOn(const chType attrs) {
 		if (wattron(win.get(), attrs) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::attrOff(chType attrs) {
+	void Window::attrOff(const chType attrs) {
 		if (wattroff(win.get(), attrs) == ERR) {
 			throw new CursesException();
 		}
 	}
 
-	void Window::keyPad(bool bf) {
+	void Window::keyPad(const bool bf) {
 		if (keypad(win.get(), bf) == ERR) {
 			throw new CursesException();
 		}
@@ -102,19 +102,19 @@ namespace curses {
 	}
 
 	// This works for PDCurses, but may not work for NCurses
-	int Window::getMaxX() {
+	int Window::getMaxX() const {
 		return getmaxx(win.get());
 	}
 
-	int Window::getMaxY() {
+	int Window::getMaxY() const {
 		return getmaxy(win.get());
 	}
 
-	int Window::getX() {
+	int Window::getX() const {
 		return getcurx(win.get());
 	}
 
-	int Window::getY() {
+	int Window::getY() const {
 		return getcury(win.get());
 	}
 

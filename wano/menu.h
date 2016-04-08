@@ -11,7 +11,7 @@ namespace wano {
 	public:
 		Menu(EventQueue* eq);
 		void draw();
-		void updatePos(int ln, int col);
+		void updatePos(const int ln, const int col);
 	private:
 		std::vector<MenuItem> items;
 		int docx, docy;

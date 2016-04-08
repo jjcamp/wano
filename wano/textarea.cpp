@@ -17,7 +17,7 @@ namespace wano {
 		scrSize.y = this->getMaxY();
 	}
 
-	void TextArea::handleCh(int ch) {
+	void TextArea::handleCh(const int ch) {
 		switch (ch) {
 		case KEY_RIGHT:
 			docCurs = doc.cursRight();

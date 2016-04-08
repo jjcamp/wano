@@ -29,7 +29,7 @@ namespace wano {
 		coord cursUp();
 		coord cursEnd();
 		coord cursHome();
-		const std::string& readLine(int line);
+		const std::string& readLine(int line) const;
 
 	private:
 		RawDocument buffer;

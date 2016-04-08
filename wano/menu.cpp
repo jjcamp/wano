@@ -32,7 +32,7 @@ namespace wano {
 		Color::InitPair(2, Color::RED, Color::CYAN);
 		this->attrOn(Color::Pair(1));
 		this->addCh(' ');
-		for (auto i : items) {
+		for (const auto& i : items) {
 			i.draw(this);
 			this->addCh(' ');
 		}
@@ -54,7 +54,7 @@ namespace wano {
 		this->refresh();
 	}
 
-	void Menu::updatePos(int ln, int col) {
+	void Menu::updatePos(const int ln, const int col) {
 		docy = ln;
 		docx = col;
 		this->draw();

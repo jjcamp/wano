@@ -8,7 +8,7 @@ namespace wano {
 		: text{ text } {
 	}
 
-	void MenuItem::draw(Window* menu) {
+	void MenuItem::draw(Window* menu) const {
 		auto isUnderlined = false;
 		for (auto c : text) {
 			if (c == '&') {
