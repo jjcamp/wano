@@ -7,16 +7,15 @@ namespace wano {
 	Menu::Menu(EventQueue* eq) :
 		Window(1, 0, 0, 0),
 		items(),
-		eq{ eq }
+		eq{ eq },
+		docx{ 0 },
+		docy{ 0 }
 	{
 		items.push_back(MenuItem("&File"));
 		items.push_back(MenuItem("&Edit"));
 		items.push_back(MenuItem("F&ormat"));
 		items.push_back(MenuItem("&View"));
 		items.push_back(MenuItem("&Help"));
-
-		docx = 0;
-		docy = 0;
 
 		eq->addHandler<coord>(DOC_MOVE, [this](coord c) {
 			this->updatePos(c.y, c.x);

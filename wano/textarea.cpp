@@ -6,16 +6,12 @@ namespace wano {
 	TextArea::TextArea(EventQueue* eq) :
 		Window(0, 0, 1, 0),
 		doc(eq),
-		eq{ eq }
-	{
-		docCurs.x = 0;
-		docCurs.y = 0;
-		scrCurs = docCurs;
-		offset.x = 0;
-		offset.y = 0;
-		scrSize.x = this->getMaxX();
-		scrSize.y = this->getMaxY();
-	}
+		eq{ eq },
+		docCurs{ 0, 0 },
+		scrCurs { 0, 0 },
+		offset{ 0, 0 },
+		scrSize{this->getMaxX(), this->getMaxY()}
+	{}
 
 	void TextArea::handleCh(const int ch) {
 		switch (ch) {
