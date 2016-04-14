@@ -8,7 +8,7 @@ namespace wano {
 	class MenuItem {
 	public:
 		MenuItem(std::string text);
-		void draw(curses::Window* menu) const;
+		void draw(curses::Window& menuWindow) const;
 		std::string text;
 	};
 }

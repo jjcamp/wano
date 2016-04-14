@@ -7,14 +7,16 @@
 #include "document.h"
 
 namespace wano {
-	class Menu : public curses::Window {
+	class Menu {
 	public:
 		Menu(EventQueue* eq);
+		const curses::Window& getWindow();
 		void draw();
 		void updatePos(const int ln, const int col);
 	private:
 		std::vector<MenuItem> items;
 		int docx, docy;
 		EventQueue* eq;
+		curses::Window win;
 	};
 }

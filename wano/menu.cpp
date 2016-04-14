@@ -5,7 +5,7 @@ using namespace curses;
 
 namespace wano {
 	Menu::Menu(EventQueue* eq) :
-		Window(1, 0, 0, 0),
+		win(1, 0, 0, 0),
 		items(),
 		eq{ eq },
 		docx{ 0 },
@@ -22,35 +22,39 @@ namespace wano {
 		});
 	}
 
+	const Window& Menu::getWindow() {
+		return win;
+	}
+
 	void Menu::draw() {
-		this->move(0, 0);
-		this->clrToEOL();
+		win.move(0, 0);
+		win.clrToEOL();
 		// Menu Color
 		Color::InitPair(1, Color::BLACK, Color::CYAN);
 		// Hotkey letter color
 		Color::InitPair(2, Color::RED, Color::CYAN);
-		this->attrOn(Color::Pair(1));
-		this->addCh(' ');
+		win.attrOn(Color::Pair(1));
+		win.addCh(' ');
 		for (const auto& i : items) {
-			i.draw(this);
-			this->addCh(' ');
+			i.draw(win);
+			win.addCh(' ');
 		}
 		// TODO: This is disgusting but I need it for further textarea work
 		char buf[15];
 		int len = sprintf_s(buf, "Ln %d, Col %d", docy, docx);
-		int numSpaces = this->getMaxX() - (len + this->getX() + 1);
+		int numSpaces = win.getMaxX() - (len + win.getX() + 1);
 		for (int i = 0; i < numSpaces; i++) {
-			this->addCh(' ');
+			win.addCh(' ');
 		}
 		for (int i = 0; i < len; i++) {
-			this->addCh(buf[i]);
+			win.addCh(buf[i]);
 		}
 		// Insert the last character to keep the cursor from moving and thus
 		// going out of bounds
-		this->insCh(' ');
+		win.insCh(' ');
 
-		this->attrOff(Color::Pair(1));
-		this->refresh();
+		win.attrOff(Color::Pair(1));
+		win.refresh();
 	}
 
 	void Menu::updatePos(const int ln, const int col) {
