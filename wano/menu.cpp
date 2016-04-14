@@ -8,8 +8,8 @@ namespace wano {
 		win(1, 0, 0, 0),
 		items(),
 		eq{ eq },
-		docx{ 0 },
-		docy{ 0 }
+		docx{ 1 },
+		docy{ 1 }
 	{
 		items.push_back(MenuItem("&File"));
 		items.push_back(MenuItem("&Edit"));
@@ -18,7 +18,7 @@ namespace wano {
 		items.push_back(MenuItem("&Help"));
 
 		eq->addHandler<coord>(DOC_MOVE, [this](coord c) {
-			this->updatePos(c.y, c.x);
+			this->updatePos(c.y + 1, c.x + 1);
 		});
 	}
 
