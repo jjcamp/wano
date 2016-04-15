@@ -7,9 +7,7 @@ namespace wano {
 		buffer(),
 		eq{ eq },
 		curs { 0, 0 }
-	{
-		buffer.emplace_back("");
-	}
+	{	}
 
 	coord Document::insCh(int ch) {
 		auto& by = buffer[curs.y];
