@@ -1,12 +1,12 @@
 #pragma once
-#include <vector>
+#include <deque>
 #include <string>
 
 namespace wano {
-	class RawDocument : public std::vector<std::string> {
+	class RawDocument : public std::deque<std::string> {
 	public:
-		RawDocument() :
-			std::vector<std::string> ()
-		{}
+		RawDocument() :	std::deque<std::string>() {
+			this->emplace_back(std::string(""));
+		}
 	};
 }
