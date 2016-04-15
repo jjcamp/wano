@@ -51,6 +51,7 @@ namespace wano {
 		case (char)'\r':
 		case KEY_ENTER:
 			docCurs = doc.newLine();
+			this->redrawDocument(); // TODO: efficiency
 			this->moveScreenCursor();
 			break;
 		case KEY_DC: //DEL
