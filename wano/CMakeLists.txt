@@ -5,6 +5,7 @@ add_executable(wano
     curses_obj.cpp
     document.cpp
     textarea.cpp
+    popup.cpp
     menuitem.cpp
     menu.cpp
 )
