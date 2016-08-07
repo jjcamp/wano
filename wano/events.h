@@ -57,32 +57,32 @@ namespace wano {
 		if (events.count(type) == 0) {
 			events[type] = LazyType::create(std::make_shared<vecfuncvoid<T>>(0));
 		}
-		LazyType::cast<shared_ptr<vecfuncvoid<T>>>(events[type])->push_back(handler);
+		LazyType::cast<std::shared_ptr<vecfuncvoid<T>>>(events[type])->push_back(handler);
 	}
 
 	template<typename T>
 	void EventQueue::fire(EventType type, T info) {
 		if (events.count(type) == 1) {
-			for (auto h : *LazyType::cast<shared_ptr<vecfuncvoid<T>>>(events[type]).get()) {
+			for (auto h : *LazyType::cast<std::shared_ptr<vecfuncvoid<T>>>(events[type]).get()) {
 				h(info);
 			}
 		}
 	}
 
 	template<typename T>
-	static EventQueue::LazyType EventQueue::LazyType::create(T value) {
+	EventQueue::LazyType EventQueue::LazyType::create(T value) {
 		auto lt = LazyType();
 		auto tinfo = supertype<T>();
 		tinfo.value = value;
 		tinfo.typeinfo = &typeid(value);
-		lt.ptr = make_unique<supertype<T>>(tinfo);
+		lt.ptr = std::make_unique<supertype<T>>(tinfo);
 		return lt;
 	}
 
 	template<typename T>
-	static T EventQueue::LazyType::cast(LazyType &c) {
+	T EventQueue::LazyType::cast(LazyType &c) {
 		if (typeid(T) != *c.ptr->typeinfo) {
-			throw bad_cast();
+			throw std::bad_cast();
 		}
 		return ((supertype<T>*)c.ptr.get())->value;
 	}
