@@ -39,7 +39,7 @@ namespace wano {
 		// Similar to boost::any
 		struct LazyType {
 			struct basetype {
-				const type_info* typeinfo;
+				const std::type_info* typeinfo;
 			};
 			template<typename T> struct supertype : public basetype {
 				T value;
