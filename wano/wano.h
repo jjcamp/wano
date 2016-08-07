@@ -1,7 +1,6 @@
 #pragma once
 
 #include <stdio.h>
-#include <tchar.h>
 
 #include "curses_obj.h"
 #include "menu.h"

@@ -5,6 +5,9 @@
 #define PDC_WIDE
 #include <curses.h>
 
+// nCurses contains a border macro, which we don't use, so undefine it to prevent errors
+#undef border
+
 namespace curses {
 	using chType = chtype;
 
