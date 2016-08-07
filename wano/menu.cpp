@@ -41,7 +41,7 @@ namespace wano {
 		}
 		// TODO: This is disgusting but I need it for further textarea work
 		char buf[15];
-		int len = sprintf_s(buf, "Ln %d, Col %d", docy, docx);
+		int len = snprintf(buf, 15, "Ln %d, Col %d", docy, docx);
 		int numSpaces = win.getMaxX() - (len + win.getX() + 1);
 		for (int i = 0; i < numSpaces; i++) {
 			win.addCh(' ');
