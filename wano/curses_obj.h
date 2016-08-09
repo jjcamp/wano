@@ -41,6 +41,7 @@ namespace curses {
 		void addCh(const chType ch);
 		void insCh(const chType ch);
 		int getCh() const;
+		void addStr(const char* cstr);
 		void move(const int y, const int x);
 		void refresh();
 		void attrOn(const chType attrs);
@@ -51,6 +52,7 @@ namespace curses {
 		int getMaxY() const;
 		int getX() const;
 		int getY() const;
+		void border(chType ls, chType rs, chType ts, chType bs, chType tl,	chType tr, chType bl, chType br);
 	private:
 		std::unique_ptr<WINDOW, int(*)(WINDOW*)> win;
 	};

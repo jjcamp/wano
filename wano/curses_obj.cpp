@@ -59,6 +59,12 @@ namespace curses {
 		return ch;
 	}
 
+	void Window::addStr(const char* cstr) {
+		if (waddstr(win.get(), cstr) == ERR) {
+			throw new CursesException();
+		}
+	}
+
 	void Window::refresh() {
 		if (wrefresh(win.get()) == ERR) {
 			throw new CursesException();
@@ -116,6 +122,12 @@ namespace curses {
 
 	int Window::getY() const {
 		return getcury(win.get());
+	}
+
+	void Window::border(chType ls, chType rs, chType ts, chType bs, chType tl, chType tr, chType bl, chType br) {
+		if (wborder(win.get(), ls, rs, ts, bs, tl, tr, bl, br) == ERR) {
+			throw new CursesException();
+		}
 	}
 
 	void Color::Start() {
