@@ -58,9 +58,12 @@ namespace curses {
 		std::unique_ptr<WINDOW, int(*)(WINDOW*)> win;
 	};
 
-	Window InitScr();
-	void Raw();
-	void NoEcho();
-	void EndWin();
-	void NoNL();
+	class Curses {
+	public:
+		static Window InitScr();
+		static void Raw();
+		static void NoEcho();
+		static void EndWin();
+		static void NoNL();
+	};
 }

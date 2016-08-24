@@ -3,34 +3,34 @@
 using namespace std;
 
 namespace curses {
-	Window InitScr() {
-		return initscr();
+	Window Curses::InitScr() {
+		return move(Window(initscr()));
 	}
 
-	void Raw() {
+	void Curses::Raw() {
 		if (raw() == ERR) {
 			throw CursesException();
 		}
 	}
 
-	void NoEcho() {
+	void Curses::NoEcho() {
 		if (noecho() == ERR) {
 			throw CursesException();
 		}
 	}
 
-	void EndWin() {
+	void Curses::EndWin() {
 		if (endwin() == ERR) {
 			throw CursesException();
 		}
 	}
 
-	void NoNL() {
+	void Curses::NoNL() {
 		if (nonl() == ERR) {
 			throw CursesException();
 		}
 	}
-
+	
 	Window::Window(WINDOW* win) :
 		win(win, delwin)
 	{}

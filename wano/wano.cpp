@@ -6,13 +6,13 @@ using namespace std;
 using namespace curses;
 
 int main() {
-	auto win = InitScr();
-	Raw();
-	NoNL();
+	auto win = Curses::InitScr();
+	Curses::Raw();
+	Curses::NoNL();
+	Curses::NoEcho();
 	win.keyPad(TRUE);
-	NoEcho();
 	Color::Start();
-	
+
 	auto eq = make_unique<EventQueue>(EventQueue());
 	auto menu = Menu(eq.get());
 	auto ta = TextArea(eq.get());
@@ -28,7 +28,7 @@ int main() {
 		else
 			ta.handleCh(ch);
 	}
-	EndWin();
+	Curses::EndWin();
 
 	return 0;
 }
