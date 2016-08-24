@@ -29,6 +29,7 @@ namespace wano {
 		coord cursUp();
 		coord cursEnd();
 		coord cursHome();
+		coord insStr(const std::string&& str);
 		const std::string& readLine(int line) const;
 
 	private:

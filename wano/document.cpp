@@ -102,6 +102,12 @@ namespace wano {
 		return this->cursMove(0, curs.y);
 	}
 
+	coord Document::insStr(const string&& str) {
+		auto& by = buffer[curs.y];
+		by.insert(curs.x, str);
+		return this->cursRight(str.length());
+	}
+
 	const string& Document::readLine(int line) const {
 		return buffer[line];
 	}
