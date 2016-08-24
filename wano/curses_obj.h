@@ -38,6 +38,7 @@ namespace curses {
 		Window(const int nlines, const int ncols, const int begin_y, const int begin_x);
 		Window(WINDOW* win);
 		void leaveOk(const bool bf);
+		void noDelay(const bool bf);
 		void addCh(const chType ch);
 		void insCh(const chType ch);
 		int getCh() const;

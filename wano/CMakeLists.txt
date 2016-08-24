@@ -8,6 +8,8 @@ add_executable(wano
     popup.cpp
     menuitem.cpp
     menu.cpp
+    getmodch-win.cpp
+    getmodch-nix.cpp
 )
 
 target_link_libraries(wano ${CURSES_LIBRARIES})

@@ -9,25 +9,25 @@ namespace curses {
 
 	void Raw() {
 		if (raw() == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void NoEcho() {
 		if (noecho() == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void EndWin() {
 		if (endwin() == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void NoNL() {
 		if (nonl() == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
@@ -41,69 +41,75 @@ namespace curses {
 
 	void Window::addCh(const chType ch) {
 		if (waddch(win.get(), ch) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::insCh(const chType ch) {
 		if (winsch(win.get(), ch) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	int Window::getCh() const {
 		auto ch = wgetch(win.get());
 		if (ch == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 		return ch;
 	}
 
 	void Window::addStr(const char* cstr) {
 		if (waddstr(win.get(), cstr) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::refresh() {
 		if (wrefresh(win.get()) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::move(const int y, const int x) {
 		if (wmove(win.get(), y, x) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::leaveOk(const bool bf) {
 		if (leaveok(win.get(), bf) == ERR) {
-			throw new CursesException();
+			throw CursesException();
+		}
+	}
+
+	void Window::noDelay(const bool bf) {
+		if (nodelay(win.get(), bf) == ERR) {
+			throw CursesException();
 		}
 	}
 
 	void Window::attrOn(const chType attrs) {
 		if (wattron(win.get(), attrs) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::attrOff(const chType attrs) {
 		if (wattroff(win.get(), attrs) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::keyPad(const bool bf) {
 		if (keypad(win.get(), bf) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Window::clrToEOL() {
 		if (wclrtoeol(win.get()) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
@@ -126,19 +132,19 @@ namespace curses {
 
 	void Window::border(chType ls, chType rs, chType ts, chType bs, chType tl, chType tr, chType bl, chType br) {
 		if (wborder(win.get(), ls, rs, ts, bs, tl, tr, bl, br) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Color::Start() {
 		if (start_color() == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 
 	void Color::InitPair(short pair, short f, short b) {
 		if (init_pair(pair, f, b) == ERR) {
-			throw new CursesException();
+			throw CursesException();
 		}
 	}
 }
