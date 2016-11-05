@@ -113,10 +113,19 @@ namespace wano {
 		// move document cursor to relative top of screen
 		docCurs = doc.cursMove(tdc.x, offset.y);
 		// loop and write the document at each line
+		auto eod = false;
+		auto prevY = docCurs.y;
 		for (int i = 0; i < scrSize.y; i++) {
 			scrCurs.y = i;
+			// 
+			if (eod) {
+				this->clrToEOL();
+				continue;
+			}
 			this->writeCurrentLine();
-			docCurs = doc.cursDown();
+			// move document cursor down and check for end of document
+			if ((docCurs = doc.cursDown()).y == prevY)
+				eod = true;
 		}
 		// set document and screen cursors back to normal
 		docCurs = doc.cursMove(tdc.x, tdc.y);
