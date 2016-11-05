@@ -39,6 +39,12 @@
     <ClInclude Include="rawdocument.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="getmodch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="popup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wano.cpp">
@@ -57,6 +63,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="document.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getmodch-nix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getmodch-win.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="popup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
