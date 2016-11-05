@@ -54,6 +54,9 @@ namespace curses {
 		int getX() const;
 		int getY() const;
 		void border(chType ls, chType rs, chType ts, chType bs, chType tl,	chType tr, chType bl, chType br);
+
+		// Non-throwing methods
+		bool tryGetCh(int* ch);
 	private:
 		std::unique_ptr<WINDOW, int(*)(WINDOW*)> win;
 	};

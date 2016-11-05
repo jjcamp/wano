@@ -12,12 +12,8 @@ namespace curses {
 		win.noDelay(true);
 		for (int i = 1; i < MAX_SCANCODE_LENGTH; i++) {
 			int ch;
-			try {
-				ch = win.getCh();
-			}
-			catch (CursesException& e) {
+			if (!win.tryGetCh(&ch))
 				break;
-			}
 			input.push_back(ch);
 		}
 		win.noDelay(false);

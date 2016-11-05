@@ -136,6 +136,14 @@ namespace curses {
 		}
 	}
 
+	bool Window::tryGetCh(int* ch) {
+		*ch = wgetch(win.get());
+		if (*ch == ERR) {
+			return false;
+		}
+		return true;
+	}
+
 	void Color::Start() {
 		if (start_color() == ERR) {
 			throw CursesException();
