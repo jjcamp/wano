@@ -13,6 +13,7 @@ namespace wano {
 		TextArea(EventQueue* eq);
 		void handleCh(const int ch);
 		Document doc;
+		void redrawDocument();
 
 	private:
 		coord docCurs;
@@ -21,7 +22,6 @@ namespace wano {
 		coord scrSize;
 		void writeCurrentLine();
 		void moveScreenCursor();
-		void redrawDocument();
 
 		EventQueue* eq;
 	};
