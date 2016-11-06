@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wano", "wano\wano.vcxproj", "{89961DD9-A64B-4A86-AC5E-E220A0BA6FDA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92} = {1FE15E68-39BA-49F9-B1B1-C53395E61E92}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "curses_ui", "curses_ui\curses_ui.vcxproj", "{1FE15E68-39BA-49F9-B1B1-C53395E61E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{89961DD9-A64B-4A86-AC5E-E220A0BA6FDA}.Release|x64.Build.0 = Release|x64
 		{89961DD9-A64B-4A86-AC5E-E220A0BA6FDA}.Release|x86.ActiveCfg = Release|Win32
 		{89961DD9-A64B-4A86-AC5E-E220A0BA6FDA}.Release|x86.Build.0 = Release|Win32
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Debug|x64.ActiveCfg = Debug|x64
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Debug|x64.Build.0 = Debug|x64
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Debug|x86.ActiveCfg = Debug|Win32
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Debug|x86.Build.0 = Debug|Win32
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Release|x64.ActiveCfg = Release|x64
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Release|x64.Build.0 = Release|x64
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Release|x86.ActiveCfg = Release|Win32
+		{1FE15E68-39BA-49F9-B1B1-C53395E61E92}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

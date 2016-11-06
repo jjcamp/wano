@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "curses_obj.h"
+#include "../curses_ui/curses_obj.h"
 
 namespace wano {
 	class Popup {

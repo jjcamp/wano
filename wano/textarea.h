@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "curses_obj.h"
+#include "../curses_ui/curses_obj.h"
 #include "document.h"
 
 // TODO: Normally the size of the textarea

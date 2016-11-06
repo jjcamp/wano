@@ -2,7 +2,7 @@
 
 #include <string>
 #include <memory>
-#include "curses_obj.h"
+#include "../curses_ui/curses_obj.h"
 
 namespace wano {
 	class MenuItem {

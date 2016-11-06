@@ -23,4 +23,5 @@ else()
     find_package(Curses REQUIRED)
 endif()
 
+add_subdirectory(curses_ui)
 add_subdirectory(wano)

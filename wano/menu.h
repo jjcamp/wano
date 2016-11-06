@@ -2,7 +2,7 @@
 
 #include <memory>
 #include <vector>
-#include "curses_obj.h"
+#include "../curses_ui/curses_obj.h"
 #include "menuitem.h"
 #include "document.h"
 
