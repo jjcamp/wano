@@ -155,4 +155,11 @@ namespace curses {
 			throw CursesException();
 		}
 	}
+
+	Cursor Curses::CursSet(Cursor style) {
+		auto prev = curs_set(static_cast<int>(style));
+		if (prev == ERR)
+			throw CursesException();
+		return static_cast<Cursor>(prev);
+	}
 }

@@ -33,6 +33,12 @@ namespace curses {
 		static void InitPair(short pair, short f, short b);
 	};
 
+	enum struct Cursor {
+		INVISIBLE = 0,
+		NORMAL = 1,
+		HIGH_VISIBILITY = 2
+	};
+
 	class Window {
 	public:
 		Window(const int nlines, const int ncols, const int begin_y, const int begin_x);
@@ -57,7 +63,7 @@ namespace curses {
 
 		// Non-throwing methods
 		bool tryGetCh(int* ch);
-	private:
+	protected:
 		std::unique_ptr<WINDOW, int(*)(WINDOW*)> win;
 	};
 
@@ -68,5 +74,6 @@ namespace curses {
 		static void NoEcho();
 		static void EndWin();
 		static void NoNL();
+		static Cursor CursSet(Cursor style);
 	};
 }
