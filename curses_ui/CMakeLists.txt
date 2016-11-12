@@ -8,4 +8,6 @@ add_library(
     getmodch-win.cpp
     panel_obj.cpp
     popup.cpp
+    menuitem.cpp
+    submenu.cpp
 )
