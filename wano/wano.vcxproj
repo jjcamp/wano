@@ -155,8 +155,6 @@
     <ClInclude Include="document.h" />
     <ClInclude Include="events.h" />
     <ClInclude Include="menu.h" />
-    <ClInclude Include="menuitem.h" />
-    <ClInclude Include="popup.h" />
     <ClInclude Include="rawdocument.h" />
     <ClInclude Include="textarea.h" />
     <ClInclude Include="wano.h" />
@@ -164,8 +162,6 @@
   <ItemGroup>
     <ClCompile Include="document.cpp" />
     <ClCompile Include="menu.cpp" />
-    <ClCompile Include="menuitem.cpp" />
-    <ClCompile Include="popup.cpp" />
     <ClCompile Include="textarea.cpp" />
     <ClCompile Include="wano.cpp" />
   </ItemGroup>

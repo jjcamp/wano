@@ -4,8 +4,6 @@ add_executable(wano
     wano.cpp
     document.cpp
     textarea.cpp
-    popup.cpp
-    menuitem.cpp
     menu.cpp
 )
 

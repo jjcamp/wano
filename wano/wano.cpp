@@ -22,7 +22,7 @@ int main() {
 		ModifierState keyMods;
 		int ch = getModCh(ta, &keyMods);
 		if (keyMods & GETCH_ALT)
-			cerr << "Alt-" << (char)ch << endl;
+			menu.focus(ch);
 		else if (ch == 27)
 			break;
 		else

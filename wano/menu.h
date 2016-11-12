@@ -2,8 +2,7 @@
 
 #include <memory>
 #include <vector>
-#include "../curses_ui/curses_obj.h"
-#include "menuitem.h"
+#include "../curses_ui/curses_ui.h"
 #include "document.h"
 
 namespace wano {
@@ -13,10 +12,13 @@ namespace wano {
 		const curses::Window& getWindow();
 		void draw();
 		void updatePos(const int ln, const int col);
+		void focus(int ch);
 	private:
-		std::vector<MenuItem> items;
+		typedef struct { std::string label; char hotkey; curses_ui::Submenu submenu; } sub;
+
+		std::vector<sub> items;
 		int docx, docy;
 		EventQueue* eq;
-		curses::Window win;
+		curses::Panel win;
 	};
 }
