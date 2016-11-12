@@ -21,6 +21,7 @@ if(WIN32)
     include_directories(${CURSES_INCLUDE})
 else()
     find_package(Curses REQUIRED)
+    find_library(PANEL_LIBRARY panel)
 endif()
 
 add_subdirectory(curses_ui)

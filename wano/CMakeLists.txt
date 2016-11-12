@@ -7,4 +7,4 @@ add_executable(wano
     menu.cpp
 )
 
-target_link_libraries(wano curses_ui ${CURSES_LIBRARIES})
+target_link_libraries(wano curses_ui ${CURSES_LIBRARIES} ${PANEL_LIBRARY})

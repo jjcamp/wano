@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <iostream>
 #include "panel_obj.h"
 
 namespace curses_ui {
