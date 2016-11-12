@@ -20,12 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="curses_obj.h" />
+    <ClInclude Include="curses_ui.h" />
     <ClInclude Include="getmodch.h" />
+    <ClInclude Include="menuitem.h" />
+    <ClInclude Include="panel_obj.h" />
+    <ClInclude Include="popup.h" />
+    <ClInclude Include="submenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="curses_obj.cpp" />
     <ClCompile Include="getmodch-nix.cpp" />
     <ClCompile Include="getmodch-win.cpp" />
+    <ClCompile Include="menuitem.cpp" />
+    <ClCompile Include="panel_obj.cpp" />
+    <ClCompile Include="popup.cpp" />
+    <ClCompile Include="submenu.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1FE15E68-39BA-49F9-B1B1-C53395E61E92}</ProjectGuid>
