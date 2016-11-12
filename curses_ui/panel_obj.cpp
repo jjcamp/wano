@@ -59,6 +59,11 @@ namespace curses {
 
 	void Panel::update() {
 		update_panels();
+		// PDCurses causes a screen update here (which is generally desirable), so
+		// for portability do the same for other curses implementations.
+#ifndef PDC_BUILD
+		doupdate();
+#endif
 	}
 
 	const Panel& Panel::topmost() {
