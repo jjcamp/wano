@@ -4,7 +4,7 @@ using namespace std;
 
 namespace wano {
 	TextArea::TextArea(EventQueue* eq) :
-		Window(0, 0, 1, 0),
+		Panel(0, 0, 1, 0),
 		doc(eq),
 		eq{ eq },
 		docCurs{ 0, 0 },

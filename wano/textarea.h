@@ -1,14 +1,14 @@
 #pragma once
 
 #include <memory>
-#include "../curses_ui/curses_obj.h"
+#include "../curses_ui/curses_ui.h"
 #include "document.h"
 
 // TODO: Normally the size of the textarea
 const auto PAGE_SIZE = 10;
 
 namespace wano {
-	class TextArea : public curses::Window {
+	class TextArea : public curses::Panel {
 	public:
 		TextArea(EventQueue* eq);
 		void handleCh(const int ch);
