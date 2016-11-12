@@ -7,4 +7,5 @@ add_library(
     getmodch-nix.cpp
     getmodch-win.cpp
     panel_obj.cpp
+    popup.cpp
 )
