@@ -93,6 +93,16 @@ namespace wano {
 		// Move the screen cursor relative to the document
 		scrCurs.y = docCurs.y - offset.y;
 		scrCurs.x = docCurs.x - offset.x;
+		auto curLine = doc.readLine(docCurs.y);
+		size_t tloc = 0;
+		int expandTab = 0;
+		while ((tloc = curLine.find('\t', tloc)) != string::npos) {
+			if (scrCurs.x <= tloc)
+				break;
+			expandTab += TABSIZE - (tloc + expandTab) % TABSIZE - 1;
+			tloc++;
+		}
+		scrCurs.x += expandTab;
 		this->move(scrCurs.y, scrCurs.x);
 	}
 
