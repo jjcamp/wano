@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClCompile Include="document.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="rawdocument.cpp" />
     <ClCompile Include="textarea.cpp" />
     <ClCompile Include="wano.cpp" />
   </ItemGroup>

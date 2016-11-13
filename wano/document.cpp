@@ -5,7 +5,12 @@ using namespace std;
 namespace wano {
 	Document::Document() :
 		buffer(),
-		curs { 0, 0 }
+		curs{ 0, 0 }
+	{}
+
+	Document::Document(istream& stream) :
+		buffer(stream),
+		curs{ 0, 0 }
 	{}
 
 	coord Document::insCh(int ch) {
@@ -108,5 +113,9 @@ namespace wano {
 
 	const string& Document::readLine(int line) const {
 		return buffer[line];
+	}
+
+	Document Document::fromString(string str) {
+		return Document(istringstream(str));
 	}
 }

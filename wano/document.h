@@ -3,6 +3,8 @@
 #include <vector>
 #include <memory>
 #include <functional>
+#include <iostream>
+#include <sstream>
 #include "rawdocument.h"
 #include "events.h"
 
@@ -15,6 +17,7 @@ namespace wano {
 	class Document {
 	public:
 		Document();
+		Document(std::istream& stream);
 		coord insCh(int ch);
 		coord delCh();
 		coord newLine();
@@ -32,6 +35,7 @@ namespace wano {
 		coord insStr(const std::string&& str);
 		const std::string& readLine(int line) const;
 
+		static Document fromString(std::string str);
 	private:
 		RawDocument buffer;
 		coord curs;

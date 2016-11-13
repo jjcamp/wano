@@ -1,12 +1,12 @@
 #pragma once
 #include <deque>
 #include <string>
+#include <istream>
 
 namespace wano {
 	class RawDocument : public std::deque<std::string> {
 	public:
-		RawDocument() :	std::deque<std::string>() {
-			this->emplace_back(std::string(""));
-		}
+		RawDocument();
+		RawDocument(std::istream& is);
 	};
 }

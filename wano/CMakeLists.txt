@@ -5,6 +5,7 @@ add_executable(wano
     document.cpp
     textarea.cpp
     menu.cpp
+    rawdocument.cpp
 )
 
 target_link_libraries(wano curses_ui ${CURSES_LIBRARIES} ${PANEL_LIBRARY})
