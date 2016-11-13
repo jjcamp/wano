@@ -8,8 +8,5 @@ Wano has been built with VS2015 and Clang 3.4, but should be able to be built wi
 
 Major TODOs
 ----
-* ~~Create an event system~~ *DONE*
-* ~~Get alt-key working on linux~~
-* Decouple textarea from document with event system
-* Implement menus
-* ~~Convert project to CMAKE or GN or GYP.~~ *Mostly done*
+* Add functionality to menus (and shortcuts)
+* Implement saving and loading
