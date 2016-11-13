@@ -23,6 +23,7 @@
     <ClInclude Include="curses_ui.h" />
     <ClInclude Include="getmodch.h" />
     <ClInclude Include="menuitem.h" />
+    <ClInclude Include="msgbox.h" />
     <ClInclude Include="panel_obj.h" />
     <ClInclude Include="popup.h" />
     <ClInclude Include="submenu.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="getmodch-nix.cpp" />
     <ClCompile Include="getmodch-win.cpp" />
     <ClCompile Include="menuitem.cpp" />
+    <ClCompile Include="msgbox.cpp" />
     <ClCompile Include="panel_obj.cpp" />
     <ClCompile Include="popup.cpp" />
     <ClCompile Include="submenu.cpp" />

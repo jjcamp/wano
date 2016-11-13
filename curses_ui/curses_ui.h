@@ -7,3 +7,4 @@
 #include "popup.h"
 #include "submenu.h"
 #include "menuitem.h"
+#include "msgbox.h"

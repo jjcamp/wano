@@ -10,4 +10,5 @@ add_library(
     popup.cpp
     menuitem.cpp
     submenu.cpp
+    msgbox.cpp
 )
