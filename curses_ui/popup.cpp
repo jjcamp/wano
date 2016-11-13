@@ -10,6 +10,7 @@ namespace curses_ui {
 		panel.border(0, 0, 0, 0, 0, 0, 0, 0);
 		panel.attrOff(Color::Pair(1));
 		panel.move(1, 1);
+		panel.keyPad(true);
 	}
 
 	Cursor Popup::beforeShow() {
