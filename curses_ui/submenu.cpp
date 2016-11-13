@@ -10,7 +10,6 @@ namespace curses_ui {
 	Submenu::Submenu(vector<MenuItem>&& items, v2 dimensions, int start_y, int start_x) :
 		Popup(dimensions.y, dimensions.x, start_y, start_x),
 		items(forward<vector<MenuItem>>(items))	{
-		panel.keyPad(true);
 	}
 	
 	int Submenu::show() {
@@ -55,6 +54,12 @@ namespace curses_ui {
 			case KEY_RIGHT:
 				result = SubmenuResult::RIGHT;
 				break;
+			case (char)'\n':
+			case (char)'\r':
+			case KEY_ENTER:
+				this->afterShow(prevCursor);
+				items[selectedItem]();
+				return SubmenuResult::EXIT;
 			default:
 				continue;
 			}

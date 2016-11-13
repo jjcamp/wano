@@ -13,6 +13,7 @@ namespace curses_ui {
 		static const size_t lengthOfLabel(const std::string& label);
 		std::string getLabel(int length) const;
 		void draw(curses::Window* win, int length);
+		void operator()();
 
 	private:
 		std::string label;

@@ -28,7 +28,7 @@ namespace wano {
 		};
 
 		auto helpMenuItems = vector<MenuItem>{
-			MenuItem("&About", "", [] {})
+			MenuItem("&About", "", [] { MsgBox::show("About wano", MsgBox::B_OK); })
 		};
 
 		items.push_back(sub{ "&File", 'f', Submenu(move(fileMenuItems), 2, 1) });

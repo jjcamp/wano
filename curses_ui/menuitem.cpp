@@ -52,4 +52,8 @@ namespace curses_ui {
 		}
 		win->attrOff(curses::Color::Pair(1 + color_offset));
 	}
+
+	void MenuItem::operator()() {
+		this->callback();
+	}
 }
