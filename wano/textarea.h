@@ -10,9 +10,11 @@ const auto PAGE_SIZE = 10;
 namespace wano {
 	class TextArea : public curses::Panel {
 	public:
-		TextArea(EventQueue* eq);
+		TextArea(EventQueue* eq);	// Deprecated
+		TextArea(EventQueue* eq, std::shared_ptr<Document> document);
+		void setDocument(std::shared_ptr<Document> document);
 		void handleCh(const int ch);
-		Document doc;
+		std::shared_ptr<Document> doc;
 		void redrawDocument();
 
 	private:

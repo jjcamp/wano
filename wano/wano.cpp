@@ -15,7 +15,8 @@ int main() {
 
 	auto eq = make_unique<EventQueue>(EventQueue());
 	auto menu = Menu(eq.get());
-	auto ta = TextArea(eq.get());
+	auto doc = make_shared<Document>(Document(eq.get()));
+	auto ta = TextArea(eq.get(), doc);
 	ta.keyPad(TRUE);
 	menu.draw();
 	while (true) {
