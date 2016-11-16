@@ -111,6 +111,10 @@ namespace wano {
 		this->clrToEOL();
 		auto str = doc.readLine(docCurs.y);
 		for (auto c : str) {
+			if (this->getX() == this->getMaxX() - 1) {
+				this->insCh(c);
+				break;
+			}
 			this->addCh(c);
 		}
 		this->move(scrCurs.y, scrCurs.x);
