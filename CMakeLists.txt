@@ -23,6 +23,7 @@ else()
     find_package(Curses REQUIRED)
     find_library(PANEL_LIBRARY panel)
 endif()
+find_package(Boost REQUIRED COMPONENTS system filesystem)
 
 add_subdirectory(curses_ui)
 add_subdirectory(wano)
