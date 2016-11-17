@@ -5,7 +5,7 @@ using namespace std;
 namespace wano {
 	TextArea::TextArea(EventQueue* eq) :
 		Panel(0, 0, 1, 0),
-		doc(eq),
+		doc(),
 		eq{ eq },
 		docCurs{ 0, 0 },
 		scrCurs { 0, 0 },
@@ -115,6 +115,10 @@ namespace wano {
 		}
 		scrCurs.x += expandTab;
 		this->move(scrCurs.y, scrCurs.x);
+		// Update document position display
+		auto fakeCurs = docCurs;
+		fakeCurs.x = scrCurs.x + offset.x;
+		this->eq->fire<coord>(DOC_MOVE, fakeCurs);
 	}
 
 	void TextArea::writeCurrentLine() {

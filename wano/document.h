@@ -14,7 +14,7 @@ namespace wano {
 
 	class Document {
 	public:
-		Document(EventQueue* eq);
+		Document();
 		coord insCh(int ch);
 		coord delCh();
 		coord newLine();
@@ -35,6 +35,5 @@ namespace wano {
 	private:
 		RawDocument buffer;
 		coord curs;
-		EventQueue* eq;
 	};
 }

@@ -3,11 +3,10 @@
 using namespace std;
 
 namespace wano {
-	Document::Document(EventQueue* eq) :
+	Document::Document() :
 		buffer(),
-		eq{ eq },
 		curs { 0, 0 }
-	{	}
+	{}
 
 	coord Document::insCh(int ch) {
 		auto& by = buffer[curs.y];
@@ -57,7 +56,6 @@ namespace wano {
 				curs.x = by.size();
 			}
 		}
-		this->eq->fire<coord>(DOC_MOVE, curs);
 		return curs;
 	}
 
