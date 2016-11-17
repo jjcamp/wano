@@ -79,12 +79,23 @@ namespace wano {
 	void TextArea::moveScreenCursor() {
 		// Test moving the screen cursor
 		bool redraw = false;
-		if (docCurs.y - offset.y >= scrSize.y) {
-			offset.y++;
+		coord delta;
+		delta.y = (docCurs.y - offset.y) - scrSize.y;
+		if (delta.y >= 0) {
+			offset.y += delta.y + 1;
 			redraw = true;
 		}
-		else if (docCurs.y - offset.y < 0) {
-			offset.y--;
+		else if (docCurs.y < offset.y) {
+			offset.y = docCurs.y;
+			redraw = true;
+		}
+		delta.x = (docCurs.x - offset.x) - scrSize.x;
+		if (delta.x >= 0) {
+			offset.x += delta.x + 1;
+			redraw = true;
+		}
+		else if (docCurs.x < offset.x) {
+			offset.x = docCurs.x;
 			redraw = true;
 		}
 		if (redraw) {
@@ -110,12 +121,12 @@ namespace wano {
 		this->move(scrCurs.y, 0);
 		this->clrToEOL();
 		auto str = doc.readLine(docCurs.y);
-		for (auto c : str) {
+		for (auto i = offset.x; i < str.length(); i++) {
 			if (this->getX() == this->getMaxX() - 1) {
-				this->insCh(c);
+				this->insCh(str[i]);
 				break;
 			}
-			this->addCh(c);
+			this->addCh(str[i]);
 		}
 		this->move(scrCurs.y, scrCurs.x);
 	}
