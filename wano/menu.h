@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <sstream>
 #include "../curses_ui/curses_ui.h"
 #include "document.h"
 

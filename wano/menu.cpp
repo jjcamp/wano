@@ -74,18 +74,14 @@ namespace wano {
 			}
 			win.addCh(' ');
 		}
-		// TODO: This is disgusting but I need it for further textarea work
-		char buf[15];
-		int len = snprintf(buf, 15, "Ln %d, Col %d", docy, docx);
-		int numSpaces = win.getMaxX() - (len + win.getX() + 1);
-		for (int i = 0; i < numSpaces; i++) {
+		// TODO roll into separate function so less needs to be redrawn
+		auto posStream = ostringstream();
+		posStream << "Ln " << docy << ", Col " << docx;
+		auto posString = posStream.str();
+		int numSpaces = win.getMaxX() - (posString.length() + win.getX() + 1);
+		for (auto i = 0; i < numSpaces; i++)
 			win.addCh(' ');
-		}
-		for (int i = 0; i < len; i++) {
-			win.addCh(buf[i]);
-		}
-		// Insert the last character to keep the cursor from moving and thus
-		// going out of bounds
+		win.addStr(posString.c_str());
 		win.insCh(' ');
 
 		win.attrOff(Color::Pair(1));
