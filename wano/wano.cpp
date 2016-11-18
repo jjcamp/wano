@@ -15,8 +15,8 @@ int main() {
 
 	auto eq = make_unique<EventQueue>(EventQueue());
 	auto menu = Menu(eq.get());
-	//auto doc = make_shared<Document>(Document(eq.get()));
-	auto doc = make_shared<Document>(Document::fromFile(eq.get(), fs::path("CMakeLists.txt")));
+	auto doc = make_shared<Document>(Document());
+	//auto doc = make_shared<Document>(Document::fromFile(fs::path("")));
 	auto ta = TextArea(eq.get(), doc);
 	ta.keyPad(TRUE);
 	menu.draw();
