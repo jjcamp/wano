@@ -4,9 +4,9 @@ project(wano CXX)
 # Clang and GCC Setup
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CXX_14_FLAG "c++1y")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    set(CXX_14_FLAG "c++14")
+    set(CXX_14_FLAG "c++11")
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "(Clang)|(GNU)")
     include(CheckCXXCompilerFlag)
@@ -17,19 +17,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "(Clang)|(GNU)")
         message(FATAL_ERROR "Your compiler (${CMAKE_CXX_COMPILER}) does not support C++14.")
     endif()
     
-    add_compile_options("-Wfatal-errors")
-endif()
-
-# GCC Setup
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
-    if(COMPILER_SUPPORTS_CXX14)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-    else()
-        message(STATUS "Your compiler(${CMAKE_CXX_COMPILER}) does not support C++14.")
-    endif()
-
     add_compile_options("-Wfatal-errors")
 endif()
 
