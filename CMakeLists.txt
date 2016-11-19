@@ -2,15 +2,34 @@ cmake_minimum_required(VERSION 2.8)
 project(wano CXX)
 
 # Clang and GCC Setup
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    set(CXX_14_FLAG "c++1y")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    set(CXX_14_FLAG "c++14")
+endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "(Clang)|(GNU)")
     include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("-std=c++1y" COMPILER_SUPPORTS_CXX14)
+    CHECK_CXX_COMPILER_FLAG("-std=${CXX_14_FLAG}" COMPILER_SUPPORTS_CXX14)
     if(COMPILER_SUPPORTS_CXX14)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -stdlib=libc++")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=${CXX_14_FLAG}")
     else()
-        message(STATUS "Your compiler (${CMAKE_CXX_COMPILER}) does not support C++14.")
+        message(FATAL_ERROR "Your compiler (${CMAKE_CXX_COMPILER}) does not support C++14.")
     endif()
     
+    add_compile_options("-Wfatal-errors")
+endif()
+
+# GCC Setup
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
+    if(COMPILER_SUPPORTS_CXX14)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+    else()
+        message(STATUS "Your compiler(${CMAKE_CXX_COMPILER}) does not support C++14.")
+    endif()
+
     add_compile_options("-Wfatal-errors")
 endif()
 
