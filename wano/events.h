@@ -49,7 +49,8 @@ namespace wano {
 			std::unique_ptr<basetype> ptr;
 		};
 
-		std::unordered_map<EventType, LazyType> events;
+		// GCC doesn't accept enums as hashes, so explicitly specify the hash function
+		std::unordered_map<EventType, LazyType, std::hash<std::underlying_type<EventType>::type>> events;
 	};
 	
 	template<typename T>
