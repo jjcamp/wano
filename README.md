@@ -4,7 +4,7 @@ Wano aims to be a portable nano clone that uses the familiar windows-like shortc
 
 Building
 --------
-Wano has been built with VS2015 and Clang 3.4, but should be able to be built with any compiler that supports C++14.
+Wano has been built with VS2015, Clang 3.4, and GCC 5.4 but should be able to be built with any compiler that supports C++14.
 
 **Dependencies:**
 - Boost::filesystem (until C++17 STL support is more widespread)
