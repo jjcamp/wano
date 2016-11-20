@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="document.h" />
     <ClInclude Include="events.h" />
+    <ClInclude Include="file.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="rawdocument.h" />
     <ClInclude Include="textarea.h" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="document.cpp" />
+    <ClCompile Include="file.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="rawdocument.cpp" />
     <ClCompile Include="textarea.cpp" />

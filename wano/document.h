@@ -4,13 +4,9 @@
 #include <memory>
 #include <functional>
 #include <iostream>
-#include <fstream>
 #include <sstream>
-#include <boost/filesystem.hpp>
 #include "rawdocument.h"
 #include "events.h"
-
-namespace fs = boost::filesystem;
 
 namespace wano {
 	typedef struct {
@@ -40,7 +36,6 @@ namespace wano {
 		const std::string& readLine(int line) const;
 
 		static Document fromString(std::string str);
-		static Document fromFile(fs::path file);
 	private:
 		RawDocument buffer;
 		coord curs;

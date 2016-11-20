@@ -119,9 +119,4 @@ namespace wano {
 		auto stream = istringstream(str);
 		return Document(stream);
 	}
-
-	Document Document::fromFile(fs::path file) {
-		auto stream = ifstream(file.string(), ios::in);
-		return Document(stream);
-	}
 }

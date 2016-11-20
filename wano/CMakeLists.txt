@@ -1,4 +1,4 @@
-include_directories(${CURSES_INCLUDE_DIR} ${BOOST_INCLUDE_DIR})
+include_directories(${CURSES_INCLUDE_DIR} ${Boost_INCLUDE_DIR})
 
 add_executable(wano
     wano.cpp
@@ -6,6 +6,7 @@ add_executable(wano
     textarea.cpp
     menu.cpp
     rawdocument.cpp
+    file.cpp
 )
 
 target_link_libraries(wano curses_ui ${CURSES_LIBRARIES} ${PANEL_LIBRARY} ${Boost_LIBRARIES})
