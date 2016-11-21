@@ -3,6 +3,7 @@
 #include <memory>
 #include "../curses_ui/curses_ui.h"
 #include "document.h"
+#include "services.h"
 
 // TODO: Normally the size of the textarea
 const auto PAGE_SIZE = 10;
@@ -10,8 +11,7 @@ const auto PAGE_SIZE = 10;
 namespace wano {
 	class TextArea : public curses::Panel {
 	public:
-		TextArea(EventQueue* eq);	// Deprecated
-		TextArea(EventQueue* eq, std::shared_ptr<Document> document);
+		TextArea(std::shared_ptr<Document> document);
 		void setDocument(std::shared_ptr<Document> document);
 		void handleCh(const int ch);
 		std::shared_ptr<Document> doc;
@@ -24,7 +24,5 @@ namespace wano {
 		coord scrSize;
 		void writeCurrentLine();
 		void moveScreenCursor();
-
-		EventQueue* eq;
 	};
 }

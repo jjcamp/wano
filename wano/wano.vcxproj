@@ -160,6 +160,7 @@
     <ClInclude Include="file.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="rawdocument.h" />
+    <ClInclude Include="services.h" />
     <ClInclude Include="textarea.h" />
     <ClInclude Include="wano.h" />
   </ItemGroup>

@@ -12,10 +12,7 @@ int main(int argc, char* argv[]) {
 	win.keyPad(TRUE);
 	Color::Start();
 
-	auto eq = make_unique<EventQueue>(EventQueue());
-	auto menu = Menu(eq.get());
-	//auto doc = make_shared<Document>(Document());
-	//auto doc = make_shared<Document>(Document::fromFile(fs::path("")));
+	auto menu = Menu();
 	shared_ptr<Document> doc;
 	if (argc > 1) {
 		File openFile = File(argv[1]);
@@ -26,7 +23,8 @@ int main(int argc, char* argv[]) {
 	}
 	else
 		doc = make_shared<Document>();
-	auto ta = TextArea(eq.get(), doc);
+	services::currentDocument::set(doc);
+	auto ta = TextArea(doc);
 	ta.keyPad(TRUE);
 	menu.draw();
 	while (true) {

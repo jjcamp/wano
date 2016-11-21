@@ -3,10 +3,9 @@
 using namespace std;
 
 namespace wano {
-	TextArea::TextArea(EventQueue* eq, shared_ptr<Document> document) :
+	TextArea::TextArea(shared_ptr<Document> document) :
 		Panel(0, 0, 1, 0),
 		doc{ document },
-		eq{ eq },
 		docCurs{ 0, 0 },
 		scrCurs{ 0, 0 },
 		offset{ 0, 0 },
@@ -14,10 +13,6 @@ namespace wano {
 		this->redrawDocument();
 		this->moveScreenCursor();
 	}
-
-	TextArea::TextArea(EventQueue* eq) :
-		TextArea(eq, make_shared<Document>(Document()))
-	{}
 
 	void TextArea::setDocument(shared_ptr<Document> document) {
 		this->doc.reset();
@@ -88,7 +83,6 @@ namespace wano {
 	}
 
 	void TextArea::moveScreenCursor() {
-		// Test moving the screen cursor
 		bool redraw = false;
 		coord delta;
 		delta.y = (docCurs.y - offset.y) - scrSize.y;
@@ -129,7 +123,7 @@ namespace wano {
 		// Update document position display
 		auto fakeCurs = docCurs;
 		fakeCurs.x = scrCurs.x + offset.x;
-		this->eq->fire<coord>(DOC_MOVE, fakeCurs);
+		services::events::get().fire(DOC_MOVE, fakeCurs);
 	}
 
 	void TextArea::writeCurrentLine() {

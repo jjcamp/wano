@@ -5,10 +5,9 @@ using namespace curses;
 using namespace curses_ui;
 
 namespace wano {
-	Menu::Menu(EventQueue* eq) :
+	Menu::Menu() :
 		win(1, 0, 0, 0),
 		items(),
-		eq{ eq },
 		docx{ 1 },
 		docy{ 1 } {
 		// If a panel is the same number of lines as another one fits
@@ -35,7 +34,7 @@ namespace wano {
 		items.push_back(sub{ "&Edit", 'e', Submenu(move(editMenuItems), 2, 6) });
 		items.push_back(sub{ "&Help", 'h', Submenu(move(helpMenuItems), 2, 11) });
 
-		eq->addHandler<coord>(DOC_MOVE, [this](coord c) {
+		services::events::get().addHandler<coord>(DOC_MOVE, [this](auto c) {
 			this->updatePos(c.y + 1, c.x + 1);
 		});
 	}

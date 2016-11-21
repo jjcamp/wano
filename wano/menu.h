@@ -5,11 +5,12 @@
 #include <sstream>
 #include "../curses_ui/curses_ui.h"
 #include "document.h"
+#include "services.h"
 
 namespace wano {
 	class Menu {
 	public:
-		Menu(EventQueue* eq);
+		Menu();
 		const curses::Window& getWindow();
 		void draw();
 		void updatePos(const int ln, const int col);
@@ -19,7 +20,6 @@ namespace wano {
 
 		std::vector<sub> items;
 		int docx, docy;
-		EventQueue* eq;
 		curses::Panel win;
 	};
 }
