@@ -57,13 +57,19 @@ namespace wano {
 		case (char)'\r':
 		case KEY_ENTER:
 			docCurs = doc->newLine();
-			this->redrawDocument(); // TODO: efficiency
+			this->redrawDocument();
 			this->moveScreenCursor();
 			break;
 		case KEY_DC: //DEL
-			docCurs = doc->delCh();
-			this->moveScreenCursor();
-			this->writeCurrentLine();
+			{
+				bool redraw = docCurs.x == doc->readLine(docCurs.y).size();
+				docCurs = doc->delCh();
+				this->moveScreenCursor();
+				if (redraw)
+					this->redrawDocument();
+				else
+					this->writeCurrentLine();
+			}
 			break;
 		case (char)'\b':
 		case KEY_BACKSPACE:
@@ -73,6 +79,13 @@ namespace wano {
 				docCurs = doc->delCh();
 				this->moveScreenCursor();
 				this->writeCurrentLine();
+			}
+			else if (docCurs.y > 0) {
+				docCurs = doc->cursUp();
+				docCurs = doc->cursEnd();
+				docCurs = doc->delCh();
+				this->moveScreenCursor();
+				this->redrawDocument();
 			}
 			break;
 		default:
@@ -147,7 +160,8 @@ namespace wano {
 		// move document cursor to relative top of screen
 		docCurs = doc->cursMove(tdc.x, offset.y);
 		// loop and write the document at each line
-		for (int i = 0; i < scrSize.y; i++) {
+		int i = 0;
+		for (; i < scrSize.y; i++) {
 			scrCurs.y = i;
 			this->writeCurrentLine();
 			// move document cursor down and check for end of document
@@ -155,8 +169,13 @@ namespace wano {
 			if (prev == (docCurs = doc->cursDown()).y)
 				break;
 		}
+		for (++i; i < scrSize.y; i++) {
+			this->move(i, 0);
+			this->clrToEOL();
+		}
 		// set document and screen cursors back to normal
 		docCurs = doc->cursMove(tdc.x, tdc.y);
 		scrCurs = tsc;
+		this->move(scrCurs.y, scrCurs.x);
 	}
 }

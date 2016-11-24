@@ -21,8 +21,11 @@ namespace wano {
 
 	coord Document::delCh() {
 		auto& by = buffer[curs.y];
-		if (curs.x < by.size()) {
+		if (curs.x < by.size())
 			by.erase(by.begin() + curs.x);
+		else if (curs.y < buffer.size() - 1) {
+			by += buffer[curs.y + 1];
+			buffer.erase(buffer.cbegin() + curs.y + 1);
 		}
 		return curs;
 	}
