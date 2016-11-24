@@ -13,19 +13,15 @@ int main(int argc, char* argv[]) {
 	Color::Start();
 
 	auto menu = Menu();
-	shared_ptr<Document> doc;
 	unique_ptr<NamedDocument> namedDoc;
 	if (argc > 1) {
 		File openFile = File(argv[1]);
-		doc = make_shared<Document>(openFile.createDocument());
-		namedDoc = make_unique<NamedDocument>(doc, openFile);
+		namedDoc = make_unique<NamedDocument>(NamedDocument::fromFile(openFile));
 	}
-	else {
-		doc = make_shared<Document>();
-		namedDoc = make_unique<NamedDocument>(doc);
-	}
+	else
+		namedDoc = make_unique<NamedDocument>(make_shared<Document>());
 	services::currentNamedDocument::set(*namedDoc);
-	auto ta = TextArea(doc);
+	auto ta = TextArea(namedDoc->document());
 	ta.keyPad(TRUE);
 	menu.draw();
 	while (true) {

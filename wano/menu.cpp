@@ -20,7 +20,7 @@ namespace wano {
 				auto& ndoc = services::currentNamedDocument::get();
 				if (!ndoc.hasFile())
 					return;
-				ndoc.file().saveDocument(ndoc.document());
+				ndoc.toFile();
 			}),
 			MenuItem("Save &As", "", [] {}),
 			MenuItem("E&xit", "", [] {})

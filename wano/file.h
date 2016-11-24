@@ -1,9 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
 #include <stdexcept>
-#include <memory>
 #include <boost/filesystem.hpp>
 #include "document.h"
 
@@ -12,13 +9,12 @@ namespace fs = boost::filesystem;
 namespace wano {
 	class File : public fs::path {
 	public:
-		File();
-		File(const std::string& filePath);
+		File() : fs::path() {}
+		File(const std::string& filePath) : fs::path(filePath) {}
 
-		bool exists();
-		// If the file does not exist, creates an empty document
-		Document createDocument();
-		void saveDocument(std::shared_ptr<Document> doc);
+		bool exists() {
+			return fs::status(*this).type() == fs::file_type::regular_file;
+		}
 	};
 
 	class FileException : public std::exception {

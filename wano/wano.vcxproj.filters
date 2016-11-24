@@ -59,7 +59,7 @@
     <ClCompile Include="rawdocument.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="file.cpp">
+    <ClCompile Include="nameddocument.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
