@@ -26,4 +26,12 @@ namespace wano {
 		}
 		this->emplace_back(line);
 	}
+
+	void RawDocument::write(ostream& os) {
+		int i;
+		for (i = 0; i < this->size() - 1; ++i)
+			os << (*this)[i] << endl;
+		os << (*this)[i];
+		os.flush();
+	}
 }

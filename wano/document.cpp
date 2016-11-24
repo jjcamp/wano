@@ -115,6 +115,10 @@ namespace wano {
 		return buffer[line];
 	}
 
+	void Document::write(ostream& stream) {
+		buffer.write(stream);
+	}
+
 	Document Document::fromString(string str) {
 		auto stream = istringstream(str);
 		return Document(stream);

@@ -35,6 +35,7 @@ namespace wano {
 		coord insStr(const std::string&& str);
 		const std::string& readLine(int line) const;
 
+		void write(std::ostream& stream);
 		static Document fromString(std::string str);
 	private:
 		RawDocument buffer;

@@ -21,4 +21,11 @@ namespace wano {
 		auto stream = ifstream(this->string(), ios::in);
 		return Document(stream);
 	}
+
+	void File::saveDocument(shared_ptr<Document> doc) {
+		auto stream = ofstream(this->string(), ios::out);
+		if (stream.fail())
+			throw FileException();
+		doc->write(stream);
+	}
 }

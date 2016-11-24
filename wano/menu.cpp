@@ -16,7 +16,12 @@ namespace wano {
 		auto fileMenuItems = vector<MenuItem>{
 			MenuItem("&New", "Ctrl+N", [] {}),
 			MenuItem("&Open", "Ctrl+O", [] {}),
-			MenuItem("&Save", "Ctrl+S", [] {}),
+			MenuItem("&Save", "Ctrl+S", [] {
+				auto& ndoc = services::currentNamedDocument::get();
+				if (!ndoc.hasFile())
+					return;
+				ndoc.file().saveDocument(ndoc.document());
+			}),
 			MenuItem("Save &As", "", [] {}),
 			MenuItem("E&xit", "", [] {})
 		};
