@@ -14,16 +14,17 @@ int main(int argc, char* argv[]) {
 
 	auto menu = Menu();
 	shared_ptr<Document> doc;
+	unique_ptr<NamedDocument> namedDoc;
 	if (argc > 1) {
 		File openFile = File(argv[1]);
-		if (!openFile.exists())
-			doc = make_shared<Document>();
-		else
-			doc = make_shared<Document>(openFile.createDocument());
+		doc = make_shared<Document>(openFile.createDocument());
+		namedDoc = make_unique<NamedDocument>(doc, openFile);
 	}
-	else
+	else {
 		doc = make_shared<Document>();
-	services::currentDocument::set(doc);
+		namedDoc = make_unique<NamedDocument>(doc);
+	}
+	services::currentNamedDocument::set(*namedDoc);
 	auto ta = TextArea(doc);
 	ta.keyPad(TRUE);
 	menu.draw();

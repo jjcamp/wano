@@ -7,4 +7,5 @@
 #include "textarea.h"
 #include "events.h"
 #include "file.h"
+#include "nameddocument.h"
 #include "services.h"

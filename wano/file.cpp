@@ -17,7 +17,7 @@ namespace wano {
 
 	Document File::createDocument() {
 		if (!this->exists())
-			throw FileNotFoundException();
+			return Document();
 		auto stream = ifstream(this->string(), ios::in);
 		return Document(stream);
 	}

@@ -39,6 +39,9 @@
     <ClInclude Include="services.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="nameddocument.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wano.cpp">

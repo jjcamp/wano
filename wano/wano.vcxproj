@@ -158,6 +158,7 @@
     <ClInclude Include="document.h" />
     <ClInclude Include="events.h" />
     <ClInclude Include="file.h" />
+    <ClInclude Include="nameddocument.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="rawdocument.h" />
     <ClInclude Include="services.h" />

@@ -14,6 +14,7 @@ namespace wano {
 		File(const std::string& filePath);
 
 		bool exists();
+		// If the file does not exist, creates an empty document
 		Document createDocument();
 	};
 

@@ -3,6 +3,7 @@
 #include <exception>
 #include <memory>
 #include "events.h"
+#include "nameddocument.h"
 #include "document.h"
 
 namespace wano {
@@ -37,6 +38,6 @@ namespace wano {
 		template<typename T> T* Locator<T>::_service;
 
 		using events = Singleton<EventQueue>;
-		using currentDocument = Locator<std::shared_ptr<Document>>;
+		using currentNamedDocument = Locator<NamedDocument>;
 	}
 }
