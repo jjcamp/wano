@@ -25,7 +25,7 @@ namespace wano {
 			static T& get() {
 				if (_service == nullptr)
 					throw ServiceNotFoundException();
-				return _service;
+				return *_service;
 			}
 
 			static void set(T& service) {
