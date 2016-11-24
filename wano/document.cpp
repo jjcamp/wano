@@ -28,8 +28,14 @@ namespace wano {
 	}
 
 	coord Document::newLine() {
-		// TODO:: Split current line if needed
-		buffer.emplace(buffer.begin() + curs.y + 1, "");
+		auto& by = buffer[curs.y];
+		if (curs.x == by.size())
+			buffer.emplace(buffer.begin() + curs.y + 1, "");
+		else {
+			auto mvStr = by.substr(curs.x);
+			by.erase(curs.x);
+			buffer.emplace(buffer.begin() + curs.y + 1, mvStr);
+		}
 		return this->cursMove(0, curs.y + 1);
 	}
 
