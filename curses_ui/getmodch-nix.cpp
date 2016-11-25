@@ -24,6 +24,10 @@ namespace curses {
 			*modState |= GETCH_ALT;
 			return input[1];
 		}
+		if (input.size() == 1 && input[0] > 0 && input[0] < 27) {
+			*modState |= GETCH_CTRL;
+			return input[0] + 96;
+		}
 		return input[0];
 	}
 }

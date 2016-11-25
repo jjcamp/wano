@@ -5,7 +5,7 @@
 #include <sstream>
 #include "../curses_ui/curses_ui.h"
 #include "document.h"
-#include "services.h"
+#include "commonfunctions.h"
 
 namespace wano {
 	class Menu {

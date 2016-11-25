@@ -7,6 +7,7 @@ add_executable(wano
     menu.cpp
     rawdocument.cpp
     nameddocument.cpp
+    commonfunctions.cpp
 )
 
 target_link_libraries(wano curses_ui ${CURSES_LIBRARIES} ${PANEL_LIBRARY} ${Boost_LIBRARIES})

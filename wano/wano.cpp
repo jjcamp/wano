@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
 	win.keyPad(TRUE);
 	Color::Start();
 
+	auto hotkeys = Hotkeys::defaults();
 	auto menu = Menu();
 	unique_ptr<NamedDocument> namedDoc;
 	if (argc > 1) {
@@ -29,6 +30,8 @@ int main(int argc, char* argv[]) {
 		int ch = getModCh(ta, &keyMods);
 		if (keyMods & GETCH_ALT)
 			menu.focus(ch);
+		else if (keyMods & GETCH_CTRL)
+			hotkeys.handleCh(ch);
 		else if (ch == 27)
 			break;
 		else

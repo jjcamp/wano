@@ -155,9 +155,11 @@
     <Text Include="..\LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="commonfunctions.h" />
     <ClInclude Include="document.h" />
     <ClInclude Include="events.h" />
     <ClInclude Include="file.h" />
+    <ClInclude Include="hotkeys.h" />
     <ClInclude Include="nameddocument.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="rawdocument.h" />
@@ -166,6 +168,7 @@
     <ClInclude Include="wano.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="commonfunctions.cpp" />
     <ClCompile Include="document.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="nameddocument.cpp" />

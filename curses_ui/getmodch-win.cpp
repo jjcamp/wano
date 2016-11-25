@@ -9,6 +9,8 @@ namespace curses {
 		// might need another solution, as this one breaks alt keycodes
 		if (*modState & GETCH_ALT)
 			ch -= 320; // translate to lowercase
+		if (*modState  & GETCH_CTRL)
+			ch += 96;
 		PDC_save_key_modifiers(false);
 
 		return ch;

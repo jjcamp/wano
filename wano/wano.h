@@ -9,3 +9,4 @@
 #include "file.h"
 #include "nameddocument.h"
 #include "services.h"
+#include "hotkeys.h"
