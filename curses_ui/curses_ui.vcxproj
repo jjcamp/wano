@@ -27,6 +27,7 @@
     <ClInclude Include="panel_obj.h" />
     <ClInclude Include="popup.h" />
     <ClInclude Include="submenu.h" />
+    <ClInclude Include="term-nix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="curses_obj.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="panel_obj.cpp" />
     <ClCompile Include="popup.cpp" />
     <ClCompile Include="submenu.cpp" />
+    <ClCompile Include="term-nix.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1FE15E68-39BA-49F9-B1B1-C53395E61E92}</ProjectGuid>

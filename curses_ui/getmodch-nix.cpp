@@ -24,7 +24,8 @@ namespace curses {
 			*modState |= GETCH_ALT;
 			return input[1];
 		}
-		if (input.size() == 1 && input[0] > 0 && input[0] < 27) {
+		// This is going to require some massaging to get right
+		if (input.size() == 1 && input[0] > 16 && input[0] < 20) {
 			*modState |= GETCH_CTRL;
 			return input[0] + 96;
 		}

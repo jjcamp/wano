@@ -39,6 +39,9 @@
     <ClInclude Include="msgbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="term-nix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="curses_obj.cpp">
@@ -63,6 +66,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="msgbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="term-nix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

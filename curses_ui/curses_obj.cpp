@@ -4,6 +4,7 @@ using namespace std;
 
 namespace curses {
 	Window Curses::InitScr() {
+		nix::setup_term();
 		return move(Window(initscr()));
 	}
 
@@ -23,6 +24,7 @@ namespace curses {
 		if (endwin() == ERR) {
 			throw CursesException();
 		}
+		nix::restore_term();
 	}
 
 	void Curses::NoNL() {

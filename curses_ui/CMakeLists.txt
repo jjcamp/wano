@@ -6,6 +6,7 @@ add_library(
     curses_obj.cpp
     getmodch-nix.cpp
     getmodch-win.cpp
+    term-nix.cpp
     panel_obj.cpp
     popup.cpp
     menuitem.cpp

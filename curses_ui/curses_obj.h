@@ -4,6 +4,7 @@
 #include <stdexcept>
 #define PDC_WIDE
 #include <curses.h>
+#include "term-nix.h"
 
 // nCurses contains a border macro, which we don't use, so undefine it to prevent errors
 #undef border
