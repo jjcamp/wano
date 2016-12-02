@@ -1,9 +1,9 @@
 #pragma once
 
-#include "curses_obj.h"
 #include <string>
 #include <unordered_map>
 #include <limits>
+#include "curses_obj.h"
 
 namespace curses_ui {
     struct ColorsException : public std::exception {

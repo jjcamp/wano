@@ -166,7 +166,6 @@
     <ClInclude Include="rawdocument.h" />
     <ClInclude Include="services.h" />
     <ClInclude Include="textarea.h" />
-    <ClInclude Include="wano.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="commonfunctions.cpp" />

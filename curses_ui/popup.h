@@ -2,7 +2,6 @@
 
 #include <functional>
 #include "panel_obj.h"
-#include "colors.h"
 
 namespace curses_ui {
 	class Popup {

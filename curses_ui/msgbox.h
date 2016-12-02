@@ -2,9 +2,7 @@
 
 #include <string>
 #include <vector>
-#include "panel_obj.h"
 #include "popup.h"
-#include "colors.h"
 
 namespace curses_ui {
 	class MsgBox : public Popup {

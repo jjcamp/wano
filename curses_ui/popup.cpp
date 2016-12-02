@@ -1,4 +1,5 @@
 #include "popup.h"
+#include "colors.h"
 
 using namespace std;
 using namespace curses;

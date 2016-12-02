@@ -1,8 +1,7 @@
 #ifdef __unix__
-#include "getmodch.h"
 #include <vector>
-
 #include <iostream>
+#include "getmodch.h"
 
 namespace curses {
 	int getModCh(Window& win, ModifierState* modState) {

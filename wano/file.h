@@ -1,6 +1,7 @@
 #pragma once
 
-#include <stdexcept>
+#include <exception>
+#include <string>
 #include <boost/filesystem.hpp>
 #include "document.h"
 

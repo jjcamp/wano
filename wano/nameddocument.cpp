@@ -1,3 +1,4 @@
+#include <fstream>
 #include "nameddocument.h"
 
 using namespace std;

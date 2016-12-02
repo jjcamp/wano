@@ -1,4 +1,6 @@
 #include "msgbox.h"
+#include "panel_obj.h"
+#include "colors.h"
 
 using namespace std;
 using namespace curses;

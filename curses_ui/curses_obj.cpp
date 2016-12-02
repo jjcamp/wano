@@ -1,4 +1,5 @@
 #include "curses_obj.h"
+#include "term-nix.h"
 
 using namespace std;
 

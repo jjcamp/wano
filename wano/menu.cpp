@@ -1,4 +1,7 @@
+#include <sstream>
 #include "menu.h"
+#include "services.h"
+#include "commonfunctions.h"
 
 using namespace std;
 using namespace curses;

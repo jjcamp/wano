@@ -1,4 +1,5 @@
 #pragma once
+
 #include <curses.h>
 #include "curses_obj.h"
 

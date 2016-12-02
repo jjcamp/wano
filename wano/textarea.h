@@ -3,7 +3,6 @@
 #include <memory>
 #include "../curses_ui/curses_ui.h"
 #include "document.h"
-#include "services.h"
 
 // TODO: Normally the size of the textarea
 const auto PAGE_SIZE = 10;

@@ -1,10 +1,8 @@
 #pragma once
 
 #include <exception>
-#include <memory>
 #include "events.h"
 #include "nameddocument.h"
-#include "document.h"
 
 namespace wano {
 	namespace services {

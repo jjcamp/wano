@@ -1,4 +1,12 @@
-#include "wano.h"
+#include "menu.h"
+#include "textarea.h"
+#include "events.h"
+#include "file.h"
+#include "document.h"
+#include "nameddocument.h"
+#include "services.h"
+#include "hotkeys.h"
+#include "configure.h"
 
 using namespace wano;
 using namespace std;

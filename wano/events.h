@@ -9,7 +9,6 @@
 #include <functional>
 #include <vector>
 #include <unordered_map>
-#include <stdexcept>
 #include <typeinfo>
 
 namespace wano {

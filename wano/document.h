@@ -1,10 +1,7 @@
 #pragma once
 
-#include <vector>
-#include <memory>
-#include <functional>
 #include <iostream>
-#include <sstream>
+#include <string>
 #include "rawdocument.h"
 #include "events.h"
 

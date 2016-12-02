@@ -1,3 +1,5 @@
+#include <vector>
+#include <sstream>
 #include "document.h"
 
 using namespace std;

@@ -1,4 +1,6 @@
 #include "commonfunctions.h"
+#include "services.h"
+#include "nameddocument.h"
 
 using namespace std;
 

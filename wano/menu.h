@@ -1,11 +1,8 @@
 #pragma once
 
-#include <memory>
 #include <vector>
-#include <sstream>
+#include <string>
 #include "../curses_ui/curses_ui.h"
-#include "document.h"
-#include "commonfunctions.h"
 
 namespace wano {
 	class Menu {

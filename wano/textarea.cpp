@@ -1,4 +1,6 @@
+#include <string>
 #include "textarea.h"
+#include "services.h"
 
 using namespace std;
 
