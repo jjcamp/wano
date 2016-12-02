@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="colors.h" />
     <ClInclude Include="curses_obj.h" />
     <ClInclude Include="curses_ui.h" />
     <ClInclude Include="getmodch.h" />
@@ -30,6 +31,7 @@
     <ClInclude Include="term-nix.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="colors.cpp" />
     <ClCompile Include="curses_obj.cpp" />
     <ClCompile Include="getmodch-nix.cpp" />
     <ClCompile Include="getmodch-win.cpp" />
