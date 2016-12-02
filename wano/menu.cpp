@@ -74,7 +74,7 @@ namespace wano {
 		auto posStream = ostringstream();
 		posStream << "Ln " << docy << ", Col " << docx;
 		auto posString = posStream.str();
-		int numSpaces = win.getMaxX() - (posString.length() + win.getX() + 1);
+		auto numSpaces = win.getMaxX() - (posString.length() + win.getX() + 1);
 		for (auto i = 0; i < numSpaces; i++)
 			win.addCh(' ');
 		win.addStr(posString.c_str());

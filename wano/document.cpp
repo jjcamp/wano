@@ -56,7 +56,7 @@ namespace wano {
 				curs.y = y;
 			}
 			else {
-				curs.y = buffer.size() - 1;
+				curs.y = static_cast<int>(buffer.size()) - 1;
 			}
 		}
 		// If y changed, x may have to move
@@ -69,7 +69,7 @@ namespace wano {
 				curs.x = x;
 			}
 			else {
-				curs.x = by.size();
+				curs.x = static_cast<int>(by.size());
 			}
 		}
 		return curs;
@@ -109,7 +109,7 @@ namespace wano {
 
 	coord Document::cursEnd() {
 		auto by = buffer[curs.y];
-		return this->cursMove(by.size(), curs.y);
+		return this->cursMove(static_cast<int>(by.size()), curs.y);
 	}
 
 	coord Document::cursHome() {
@@ -119,7 +119,7 @@ namespace wano {
 	coord Document::insStr(const string&& str) {
 		auto& by = buffer[curs.y];
 		by.insert(curs.x, str);
-		return this->cursRight(str.length());
+		return this->cursRight(static_cast<int>(str.length()));
 	}
 
 	const string& Document::readLine(int line) const {

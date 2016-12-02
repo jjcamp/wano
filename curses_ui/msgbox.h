@@ -28,7 +28,7 @@ namespace curses_ui {
 		typedef struct { int value; std::string label; bool selected; } button_info;
 		std::vector<button_info> button_infos;
 		int buttons_width;
-		int button_selected;
+		size_t button_selected;
 
 		const std::string MENU_COLOR_KEY = "menu";
 		const std::string MENU_HIGHLIGHT_COLOR_KEY = "menu_highlight";

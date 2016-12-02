@@ -74,7 +74,7 @@ namespace curses_ui {
 		for (auto& i : items) {
 			lines++;
 			if (i.length() > cols)
-				cols = i.length();
+				cols = static_cast<int>(i.length());
 		}
 		return v2{ lines, cols };
 	}

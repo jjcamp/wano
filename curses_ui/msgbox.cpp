@@ -74,8 +74,8 @@ namespace curses_ui {
 
 	MsgBox::coord_info MsgBox::calcSize(const string& text, unsigned char buttons) const {
 		const int MAX_WIDTH = COLS * 2 / 3;
-		int len = text.length();
-		int lines = len / MAX_WIDTH;
+		auto len = static_cast<int>(text.length());
+		auto lines = len / MAX_WIDTH;
 		if (len % MAX_WIDTH > 0)
 			lines++;
 		lines++; // buttons
