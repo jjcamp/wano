@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commonfunctions.h" />
+    <ClInclude Include="configure.h" />
     <ClInclude Include="document.h" />
     <ClInclude Include="events.h" />
     <ClInclude Include="file.h" />

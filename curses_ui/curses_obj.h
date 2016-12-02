@@ -32,6 +32,7 @@ namespace curses {
 
 		static void Start();
 		static void InitPair(short pair, short f, short b);
+		static void PairContent(short pair, short* f, short* b);
 	};
 
 	enum struct Cursor {

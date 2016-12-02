@@ -48,6 +48,9 @@
     <ClInclude Include="hotkeys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="configure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wano.cpp">

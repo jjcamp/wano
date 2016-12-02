@@ -19,5 +19,10 @@ namespace curses_ui {
 		std::string label;
 		std::string hotkey;
 		std::function<void(void)> callback;
+
+		const std::string MENU_COLOR_KEY = "menu";
+		const std::string MENU_HOTKEY_COLOR_KEY = "menu_hotkey";
+		const std::string MENU_HIGHLIGHT_COLOR_KEY = "menu_highlight";
+		const std::string MENU_HIGHLIGHT_HOTKEY_COLOR_KEY = "menu_highlight_hotkey";
 	};
 }

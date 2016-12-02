@@ -158,6 +158,12 @@ namespace curses {
 		}
 	}
 
+	void Color::PairContent(short pair, short* f, short* b) {
+		if (pair_content(pair, f, b) == ERR) {
+			throw CursesException();
+		}
+	}
+
 	Cursor Curses::CursSet(Cursor style) {
 		auto prev = curs_set(static_cast<int>(style));
 		if (prev == ERR)

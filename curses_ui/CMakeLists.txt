@@ -12,4 +12,5 @@ add_library(
     menuitem.cpp
     submenu.cpp
     msgbox.cpp
+    colors.cpp
 )

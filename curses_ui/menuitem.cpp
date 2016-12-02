@@ -1,4 +1,5 @@
 #include "menuitem.h"
+#include "colors.h"
 
 using namespace std;
 using namespace curses;
@@ -7,8 +8,12 @@ namespace curses_ui {
 	MenuItem::MenuItem(std::string&& label, std::string hotkey, std::function<void(void)> callback) :
 		label(move(label)),
 		hotkey{ hotkey },
-		callback{ callback }
-	{}
+		callback{ callback } {
+		Colors::instance.addIfMissing(MENU_COLOR_KEY, Color::BLACK, Color::WHITE);
+		Colors::instance.addIfMissing(MENU_HOTKEY_COLOR_KEY, Color::WHITE, Color::BLACK);
+		Colors::instance.addIfMissing(MENU_HIGHLIGHT_COLOR_KEY, Color::WHITE, Color::BLACK);
+		Colors::instance.addIfMissing(MENU_HIGHLIGHT_HOTKEY_COLOR_KEY, Color::BLACK, Color::WHITE);
+	}
 
 	const size_t MenuItem::length() const {
 		return MenuItem::lengthOfLabel(label) + hotkey.length() + 1;
@@ -31,26 +36,29 @@ namespace curses_ui {
 	}
 
 	void MenuItem::draw(Window* win, int length) {
-		int color_offset = 0;
-		if (this->selected)
-			color_offset = 2;
+		auto nColor = MENU_COLOR_KEY;
+		auto hkColor = MENU_HOTKEY_COLOR_KEY;
+		if (this->selected) {
+			nColor = MENU_HIGHLIGHT_COLOR_KEY;
+			hkColor = MENU_HIGHLIGHT_HOTKEY_COLOR_KEY;
+		}
 
-		win->attrOn(curses::Color::Pair(1 + color_offset));
-		auto highlight = false;
+		Colors::instance.set(*win, nColor);		
+		auto hotkeyed = false;
 		for (auto c : this->getLabel(length)) {
 			if (c == '&') {
-				highlight = true;
+				hotkeyed = true;
 				continue;
 			}
-			if (highlight)
-				win->attrOn(curses::Color::Pair(2 + color_offset));
+			if (hotkeyed)
+				Colors::instance.set(*win, hkColor);
 			win->addCh(c);
-			if (highlight) {
-				win->attrOn(curses::Color::Pair(1 + color_offset));
-				highlight = false;
+			if (hotkeyed) {
+				Colors::instance.set(*win, nColor);
+				hotkeyed = false;
 			}
 		}
-		win->attrOff(curses::Color::Pair(1 + color_offset));
+		Colors::instance.unset(*win, nColor);
 	}
 
 	void MenuItem::operator()() {

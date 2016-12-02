@@ -21,5 +21,8 @@ namespace wano {
 		std::vector<sub> items;
 		int docx, docy;
 		curses::Panel win;
+
+		const std::string MENU_COLOR_KEY = "menu";
+		const std::string MENU_HOTKEY_COLOR_KEY = "menu_hotkey";
 	};
 }

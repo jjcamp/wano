@@ -10,13 +10,15 @@ namespace wano {
 		items(),
 		docx{ 1 },
 		docy{ 1 } {
+		Colors::instance.addIfMissing(MENU_COLOR_KEY, Color::BLACK, Color::WHITE);
+		Colors::instance.addIfMissing(MENU_HOTKEY_COLOR_KEY, Color::WHITE, Color::BLACK);
+
 		// If a panel is the same number of lines as another one fits
 		// inside the other, (pd?)curses will not redraw.
-		
 		auto fileMenuItems = vector<MenuItem>{
 			MenuItem("&New", "Ctrl+N", [] {}),
 			MenuItem("&Open", "Ctrl+O", [] {}),
-			MenuItem("&Save", "Ctrl+S", functions::saveCurrentDocument ),
+			MenuItem("&Save", "Ctrl+S", functions::saveCurrentDocument),
 			MenuItem("Save &As", "", [] {}),
 			MenuItem("E&xit", "", [] {})
 		};
@@ -46,29 +48,21 @@ namespace wano {
 	void Menu::draw() {
 		win.move(0, 0);
 		win.clrToEOL();
-		// Menu Color
-		Color::InitPair(1, Color::BLACK, Color::CYAN);
-		// Hotkey letter color
-		Color::InitPair(2, Color::RED, Color::CYAN);
-		// Highlighted Color
-		Color::InitPair(3, Color::CYAN, Color::BLACK);
-		// Highlighted Hotkey Color
-		Color::InitPair(4, Color::WHITE, Color::BLACK);
-		win.attrOn(Color::Pair(1));
+		Colors::instance.set(win, MENU_COLOR_KEY);
 		win.addCh(' ');
 		for (const auto& i : items) {
-			auto highlight = false;
+			auto hotkeyed = false;
 			for (const auto& c : i.label) {
 				if (c == '&') {
-					highlight = true;
+					hotkeyed = true;
 					continue;
 				}
-				if (highlight)
-					win.attrOn(Color::Pair(2));
+				if (hotkeyed)
+					Colors::instance.set(win, MENU_HOTKEY_COLOR_KEY);
 				win.addCh(c);
-				if (highlight) {
-					win.attrOn(Color::Pair(1));
-					highlight = false;
+				if (hotkeyed) {
+					Colors::instance.set(win, MENU_COLOR_KEY);
+					hotkeyed = false;
 				}
 			}
 			win.addCh(' ');
@@ -83,7 +77,7 @@ namespace wano {
 		win.addStr(posString.c_str());
 		win.insCh(' ');
 
-		win.attrOff(Color::Pair(1));
+		Colors::instance.unset(win, MENU_COLOR_KEY);
 		win.refresh();
 	}
 

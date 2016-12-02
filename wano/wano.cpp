@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
 	win.keyPad(TRUE);
 	Color::Start();
 
+	configureColors();
 	auto hotkeys = Hotkeys::defaults();
 	auto menu = Menu();
 	unique_ptr<NamedDocument> namedDoc;

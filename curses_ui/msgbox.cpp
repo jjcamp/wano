@@ -8,7 +8,10 @@ namespace curses_ui {
 		Popup(info.nlines, info.ncols, info.begin_y, info.begin_x),
 		message(forward<string>(text)),
 		button_infos() {
-		panel.attrOn(Color::Pair(1));
+		Colors::instance.addIfMissing(MENU_COLOR_KEY, Color::BLACK, Color::WHITE);
+		Colors::instance.addIfMissing(MENU_HIGHLIGHT_COLOR_KEY, Color::WHITE, Color::BLACK);
+
+		Colors::instance.set(this->panel, MENU_COLOR_KEY);
 		panel.addStr(message.c_str());
 		for (auto i = 0; i < info.ncols - message.length(); ++i)
 			panel.addCh(' ');
@@ -24,7 +27,7 @@ namespace curses_ui {
 		button_selected = button_infos.size() - 1;
 		button_infos[button_selected].selected = true;
 
-		panel.attrOff(Color::Pair(1));
+		Colors::instance.unset(this->panel, MENU_COLOR_KEY);
 
 		buttons_width = this->calcButtonsWidth(buttons);
 		this->drawButtons();
@@ -103,24 +106,24 @@ namespace curses_ui {
 
 	void MsgBox::drawButtons() {
 		panel.move(panel.getMaxY() - 2, 1);
-		panel.attrOn(Color::Pair(1));
+		Colors::instance.set(this->panel, MENU_COLOR_KEY);
 		auto padding = panel.getMaxX() - 2 - buttons_width;
 		for (auto front = padding / 2; front < padding; --padding)
 			panel.addCh(' ');
 		for (auto i = 0; i < button_infos.size(); ++i) {
 			panel.addCh('[');
 			if (button_infos[i].selected)
-				panel.attrOn(Color::Pair(3));
+				Colors::instance.set(this->panel, MENU_HIGHLIGHT_COLOR_KEY);
 			panel.addStr(button_infos[i].label.c_str());
 			if (button_infos[i].selected)
-				panel.attrOn(Color::Pair(1));
+				Colors::instance.set(this->panel, MENU_COLOR_KEY);
 			panel.addCh(']');
 			if (i != button_infos.size() - 1)
 				panel.addCh(' ');
 		}
 		for (; padding > 0; --padding)
 			panel.addCh(' ');
-		panel.attrOff(Color::Pair(1));
+		Colors::instance.unset(this->panel, MENU_COLOR_KEY);
 	}
 
 	int MsgBox::show(std::string&& text, unsigned char buttons) {

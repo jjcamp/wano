@@ -2,6 +2,7 @@
 
 #include <functional>
 #include "panel_obj.h"
+#include "colors.h"
 
 namespace curses_ui {
 	class Popup {
@@ -20,5 +21,7 @@ namespace curses_ui {
 		curses::Panel panel;
 		curses::Cursor beforeShow();
 		void afterShow(curses::Cursor prevCursor);
+
+		const std::string MENU_COLOR_KEY = "menu";
 	};
 }

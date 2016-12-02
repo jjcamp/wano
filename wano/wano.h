@@ -10,3 +10,4 @@
 #include "nameddocument.h"
 #include "services.h"
 #include "hotkeys.h"
+#include "configure.h"

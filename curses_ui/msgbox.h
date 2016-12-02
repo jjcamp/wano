@@ -4,6 +4,7 @@
 #include <vector>
 #include "panel_obj.h"
 #include "popup.h"
+#include "colors.h"
 
 namespace curses_ui {
 	class MsgBox : public Popup {
@@ -30,5 +31,8 @@ namespace curses_ui {
 		std::vector<button_info> button_infos;
 		int buttons_width;
 		int button_selected;
+
+		const std::string MENU_COLOR_KEY = "menu";
+		const std::string MENU_HIGHLIGHT_COLOR_KEY = "menu_highlight";
 	};
 }
