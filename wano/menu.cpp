@@ -23,7 +23,7 @@ namespace wano {
 			MenuItem("&Open", "Ctrl+O", [] {}),
 			MenuItem("&Save", "Ctrl+S", functions::saveCurrentDocument),
 			MenuItem("Save &As", "", [] {}),
-			MenuItem("E&xit", "", [] {})
+			MenuItem("E&xit", "", [] { services::events::get().fire(EXIT_WANO, true); })
 		};
 
 		auto editMenuItems = vector<MenuItem>{

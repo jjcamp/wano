@@ -15,7 +15,8 @@ namespace wano {
 	// Enumeration of allowable event types
 	enum EventType {
 		MOVE_CURSOR,
-		DOC_MOVE
+		DOC_MOVE,
+		EXIT_WANO,
 	};
 
 	// Alias this long type that is used several times
